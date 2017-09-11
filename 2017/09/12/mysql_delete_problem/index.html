@@ -12,7 +12,7 @@
     
     <title>
         
-            python多线程技术(一) | 
+            mysql非主键删除记录 | 
         
         DeiMo&#39;s blog
     </title>
@@ -65,18 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://deimo.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="python多线程技术(一) | DeiMo&#39;s blog">
+    <meta property="og:title" content="mysql非主键删除记录 | DeiMo&#39;s blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="8月 28, 2017" />
-        <meta property="article:modified_time" content="8月 29, 2017" />
+        <meta property="article:published_time" content="9月 12, 2017" />
+        <meta property="article:modified_time" content="9月 12, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="python多线程技术(一) | DeiMo&#39;s blog">
+    <meta name="twitter:title" content="mysql非主键删除记录 | DeiMo&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,7 +84,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html" />
+        <link rel="canonical" href="https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -110,10 +110,10 @@
         },
         "description": "剑血封喉，玩事卜攻"
     },
-    "headline": "python多线程技术(一)",
-    "url": "https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html",
-    "datePublished": "8月 28, 2017",
-    "dateModified": "8月 29, 2017",
+    "headline": "mysql非主键删除记录",
+    "url": "https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html",
+    "datePublished": "9月 12, 2017",
+    "dateModified": "9月 12, 2017",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -350,7 +350,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多线程技术概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">多线程技术概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建多线程的方式"><span class="post-toc-number">2.</span> <span class="post-toc-text">创建多线程的方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多线程的运行状态"><span class="post-toc-number">3.</span> <span class="post-toc-text">多线程的运行状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其它"><span class="post-toc-number">4.</span> <span class="post-toc-text">其它</span></a></li></ol>
+        
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -388,7 +388,7 @@
         
     
             <p class="article-headline-p">
-                python多线程技术(一)
+                mysql非主键删除记录
             </p>
         </div>
 
@@ -407,7 +407,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>DeiMo</strong>
-        <span>8月 28, 2017</span>
+        <span>9月 12, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -429,7 +429,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0klEQVR42u3a0U4DMQwEwP7/T8MrEuqxtnNwJHNPFS1pJkhY8fr1ceTzwsbGxsbGxsbGxn4k+xU/Xz+fvH737vdvv97Ju9/K94yNjY19AvuHf/2XpHfr5IBkhcmesbGxsc9hJ0VrwdcXj6xa9rCxsbGxk+vH9dbfrZCUq6T4YWNjY2MvWKKFz5tH+ZFhY2NjY6+9TlyXrsmB/nEvDRsbG/vx7DuC3rtfPzTfxsbGxv51dvWphge91n8+vlPYOTY2Nvam7LytP4l7J+2h62JWaGZhY2NjH8Cu/jwPg3vRb/V7f9g5NjY29tbsajt+7XhNHh7npREbGxv7HHa+uWqDft767114sLGxsc9k90pO3tBPYL0iVyiQ2NjY2Juye02l3hFUQ9zeCtjY2NjYScGYXyomV5EbCxg2Njb2RuxkfGcyXjMJevNIABsbG/sE9mRD+VDmpMj1Pl/opWFjY2P/c3ZSoqrH1BusqY7yVAsbNjY29jns5AjyWDc54pwxiRywsbGxd2WvupD0hm/yi8eCAomNjY29Kbu33HzgZjIAVD1WbGxs7L3ZeWiat/h77+bH0bzkYGNjY2/NngQGa+Pe3vGV4wFsbGzsjdhJu6d3LUle55HAPGzGxsbG3pXdaxvlEcIkys2jiGjP2NjY2Mewq233atgwaQ/lfwZsbGxs7GpRqTb088ZQgo+aTdjY2NibsnsNnXzQZ14skyOIWlfY2NjYm7KT7eYhQbJyHtbmxbXZVMLGxsbelJ1vvXoluCMYWFbAsLGxsf8tu9pOygcoJ4Wwd+UoTyphY2Njb8Tuha/VwZ3JaOakvYWNjY19Drs3Utkb3KxeXXolFhsbGxu7ev3Io+JJeFwNGLCxsbGxe6Rqkas+5f1gY2NjH8CulpZqrJs0iXpl8vZeGjY2Nvbj2QtaNsVGUjK+k8cDUcyMjY2NvSn7nAcbGxsbGxsbGxv7Mc8n/acqXBmc2hkAAAAASUVORK5CYII=">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC4UlEQVR42u3aMXYbMQwEUN3/0kmbxtQMISUb8m/lJ8tcfjYwBnz9uvJ5YWNjY2NjY2NjYz+S/YqfN4v+8Z29v1p//tP6+Z6xsbGxz2a3m1tvYn2s6zXX7xrtGRsbG/sCdrLFZLvt37a/bfeMjY2NjZ1vbu9o2mYGGxsbG3vOXoc4bUPSHjc2NjY29iSgmTcq+QghJ309S8PGxsZ+PDsfmj7n578638bGxsZ+MLt9kjZj3XIkJSq/3FPsHBsbG/tQdhsY7Q0G2ianvQYUHRw2Njb2oexPDVnz5mEvMMoP9MfPsbGxsS9gt41E8vrJBaDN8CgPlbCxsbGPYLcFKXnl3nFMYqzRfBsbGxv7CPZeUcm3uzcqSIpT0t5gY2Nj38POSXms86lxbzt4iKYi2NjY2Eew8/imjZ/2Lm5G8dDe9SBsbGzsQ9n5lZoWlqyQl6h8nTpLw8bGxj6C3Y4EJjFT++zttujAsLGxsf9zdjt8nfAm8VMeKmFjY2Pfxs5fkGyrHS3MD3EUKmFjY2MfwZ4Us7w9+Aa+HUJjY2Njn8puY5qktfhs5JSv/+aIsbGxsQ9lT4KeSfOw3vReY/PmO9jY2NiHsvNRbvTvftyQzJuQD1y+xMbGxj6C3W6l/c7kCs76QPM1sbGxse9hT9qJpKTlrU4SWrUBEzY2Nvap7LbNyFuX/JM2QsqDJGxsbOw72W3AlKzwpkkYlLS8WcLGxsa+gZ2UnHwAvNdO7IVTowKGjY2NfRA7H7J+45jasW6yDjY2NvYN7LoMlMPatrBNjqkoYNjY2NgHsV/xk2x0folzMlquB73Y2NjYB7HzopWHO58d3LYFDBsbG/tOdl481i9rQ6g2Qvrw5UtsbGzsK9l5zNRetUm+07Yo2NjY2NhtKzIZIbQXgIryiY2NjX0BexLo5IUkP468aYmOHhsbG/todhvcrDe9V5Dy0vgP5tvY2NjYD2bf82BjY2NjY2NjY2M/5vkNZ/TYuyyBfxoAAAAASUVORK5CYII=">
     
 </ul>
     
@@ -458,7 +458,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=python多线程技术(一)&url=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=mysql非主键删除记录&url=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=python多线程技术(一)&url=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html&via=DeiMo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=mysql非主键删除记录&url=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html&via=DeiMo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -485,7 +485,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -494,7 +494,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html&title=python多线程技术(一)" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html&title=mysql非主键删除记录" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -503,7 +503,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=DeiMo&#39;s blog&title=python多线程技术(一)&summary=&pics=https://deimo.github.io/img/favicon.png&url=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=DeiMo&#39;s blog&title=mysql非主键删除记录&summary=&pics=https://deimo.github.io/img/favicon.png&url=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -512,7 +512,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://deimo.github.io/2017/08/28/python多线程技术(一)/index.html&text=python多线程技术(一)" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html&text=mysql非主键删除记录" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -527,81 +527,22 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>最近一直在学习python的当中多线程技术，感觉使用起来的确比java要方便多～正好乘这个机会，当作是一个记录和总结了</p>
-<h2 id="多线程技术概述"><a href="#多线程技术概述" class="headerlink" title="多线程技术概述"></a>多线程技术概述</h2><p>1.进程与线程</p>
-<ul>
-<li>进程：正在运行中的程序</li>
-<li>线程：进程中负责程序执行的控制单元（执行路径）一个进程可以有多个执行路径，称之为多线程</li>
-</ul>
-<p>2.多线程技术的意义</p>
+        <p>这几天在使用mysql过程中发现了这样一个有趣问题：如果在执行delete操作时，where子句不是直接指定条件，mysql就会报错，内容如下：</p>
 <blockquote>
-<p>开启多个线程是为了同时运行多部分代码，每一个线程都有自己运行的内容。这个内容就是多线程要执行的任务</p>
+<p>Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -&gt; SQL Editor and reconnect.</p>
 </blockquote>
-<p>3.多线程的好处与弊端</p>
-<ul>
-<li><p>好处：解决了多部分程序同时运行的问题，由主机的操作系统给每个进程/线程安排一个小的时间片，</p>
-<p>在所有进程/线程间快速循环，使得每个执行单位都得到CPU的执行时间。</p>
-</li>
-<li><p>弊端：线程太多反而会导致cpu处理效率的降低，这是因为应用程序的执行都是cpu做着快速的切换完成的，而这个切换是随机的。</p>
-</li>
-</ul>
-<p>4.python中多线程局限性（这里的python如不加特殊说明都是指CPython）</p>
+<p>查阅官方的手册后，官方时如此介绍的：</p>
 <blockquote>
-<p>Python解释器内部使用了全局解释器锁（GIL），限制了一个Python程序只能在一个CPU核心上运行。</p>
+<p>For beginners, a useful startup option is <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--safe-updates</code></a> (or <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--i-am-a-dummy</code></a>, which has the same effect). It is helpful for cases when you might have issued a <code>DELETE FROM *tbl_name*</code> statement but forgotten the <code>WHERE</code> clause. Normally, such a statement deletes all rows from the table. With <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--safe-updates</code></a>, you can delete rows only by specifying the key values that identify them. This helps prevent accidents.</p>
 </blockquote>
-<p>所以…某种以上上…python语言的多线程特性…只是一个美丽的谎言…但这并不足以作为拒绝learning的理由，君不见node.js的异步单线程模型在大部分应用场合下～速度不都是杠杠滴嘛</p>
-<h2 id="创建多线程的方式"><a href="#创建多线程的方式" class="headerlink" title="创建多线程的方式"></a>创建多线程的方式</h2><p>python当中封装了有专门针对多线程解决方案的threading模块，我们对于多线程技术的各种功能需求，都可以在此模块当中找到，挑几个重要的介绍下吧～<img src="/img/pythread/threadingmodule.jpg" alt="threadingmodule"></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类名</th>
-<th style="text-align:center">功能描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Thread</td>
-<td style="text-align:center">表示控制线程的类，封装线程对象一般属性和开启以及等待方法</td>
-</tr>
-<tr>
-<td style="text-align:center">Lock</td>
-<td style="text-align:center">指令锁，封装由同步所需的获取🔒和释放锁的方法</td>
-</tr>
-<tr>
-<td style="text-align:center">RLock</td>
-<td style="text-align:center">可重入锁，用于同一线程多次获取同一资源，相应地也要release匹配</td>
-</tr>
-<tr>
-<td style="text-align:center">Condition</td>
-<td style="text-align:center">条件变量，常用于生产者，消费者模型中的共享变量控制及线程间的通信</td>
-</tr>
-<tr>
-<td style="text-align:center">Semaphore</td>
-<td style="text-align:center">信号量，内部维护着一个计数器，可用于实现对稀缺资源的控制，如数据库连接池等</td>
-</tr>
-<tr>
-<td style="text-align:center">Event</td>
-<td style="text-align:center">事件，用于</td>
-</tr>
-</tbody>
-</table>
-<p>在python中有两种方式创建线程，以下来自Thread类doc说明</p>
+<p>原来mysql为了避免出现初学者在执行delete操作时未制定where条件导致整个表被删除，因此在系统变量中开启了<strong>SAVE-UPDATES</strong>模式，这样就能有效减少错误的产生了。</p>
+<p><strong>SAVE-UPDATES</strong>下有3个作用：这里就直接po出文档了</p>
 <blockquote>
-<p>There are two ways to specify the activity: by passing a callable object to the constructor, or by overriding the run() method in a subclass</p>
+<p>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</p>
+<p>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</p>
+<p>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</p>
 </blockquote>
-<p>下面先介绍下Thread对象相关属性和方法，以及线程的创建方式<img src="/img/pythread/thread.png" alt="Thread对象"></p>
-<ul>
-<li><p>第一种方式：继承Thread类并重写run()方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">  </div><div class="line">  </div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">      	super().__init__()</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        s = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">            s += i;</div><div class="line">            time.sleep(<span class="number">0.1</span>)</div><div class="line">        print(s)</div><div class="line"> </div><div class="line">th = MyThread()</div></pre></td></tr></table></figure>
-</li>
-<li><p>第二种方式：在实例化Thread对象时传入线程的运行目标任务（一个函数）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">thfun</span><span class="params">()</span>:</span></div><div class="line">    s = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        s += i;</div><div class="line">        time.sleep(<span class="number">0.1</span>)</div><div class="line">    print(s)</div><div class="line"></div><div class="line">th = threading.Thread(target=thfun)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>创建线程后即可调用 <strong>start()</strong>方法调用开启线程</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">th.start()</div></pre></td></tr></table></figure>
-<h2 id="多线程的运行状态"><a href="#多线程的运行状态" class="headerlink" title="多线程的运行状态"></a>多线程的运行状态</h2><p>引用某大佬的一幅图来解释吧，在此先膜拜下大佬～<img src="/img/pythread/threadstatus.png" alt="threadstatus"></p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>受篇幅限制，本次关于python下多线程技术就暂且聊到这里了，太长的文章想必大佬们也没耐心看下去…相信这里的内容对任何有一定语言基础的朋友来说都是再容易不过了🤓～接下来的博主要更新的文章将是多线程技术中的核心与精华（不限语言），暂且剧透下吧😈：指令锁实现同步、条件变量模拟生产者消费者模型、信号量实现对稀缺资源的控制、使用事件实现线程间的通信…敬请期待，预计1～2篇，下次我会po上全部完整代码😎</p>
+<p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="external">传送门</a></p>
 
     
 
@@ -621,21 +562,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/05/python多线程技术-二/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/08/25/怎样使用hexo生成自己的githup主页/" id="post_nav-older" class="next-content">
+        <a href="/2017/09/05/python多线程技术-二/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

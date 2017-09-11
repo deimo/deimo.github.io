@@ -537,11 +537,14 @@
 </blockquote>
 <p>原来mysql为了避免出现初学者在执行delete操作时未制定where条件导致整个表被删除，因此在系统变量中开启了<strong>SAVE-UPDATES</strong>模式，这样就能有效减少错误的产生了。</p>
 <p><strong>SAVE-UPDATES</strong>下有3个作用：这里就直接po出文档了</p>
-<blockquote>
-<p>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</p>
-<p>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</p>
-<p>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</p>
-</blockquote>
+<ul>
+<li><p>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</p>
+</li>
+<li><p>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</p>
+</li>
+<li><p>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</p>
+</li>
+</ul>
 <p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="external">传送门</a></p>
 
     
@@ -682,7 +685,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python-多线程/">python 多线程<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql-问题记录/">mysql 问题记录<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python-多线程/">python 多线程<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         

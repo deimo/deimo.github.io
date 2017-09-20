@@ -72,7 +72,7 @@
 
     
         <meta property="article:published_time" content="9月 12, 2017" />
-        <meta property="article:modified_time" content="9月 12, 2017" />
+        <meta property="article:modified_time" content="9月 20, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -113,7 +113,7 @@
     "headline": "mysql非主键删除记录",
     "url": "https://deimo.github.io/2017/09/12/mysql_delete_problem/index.html",
     "datePublished": "9月 12, 2017",
-    "dateModified": "9月 12, 2017",
+    "dateModified": "9月 20, 2017",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -538,13 +538,13 @@
 <p>原来mysql为了避免出现初学者在执行delete操作时未制定where条件导致整个表被删除，因此在系统变量中开启了<strong>SAVE-UPDATES</strong>模式，这样就能有效减少错误的产生了。</p>
 <p><strong>SAVE-UPDATES</strong>下有3个作用：这里就直接po出文档了</p>
 <ul>
-<li><p>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</p>
-</li>
-<li><p>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</p>
-</li>
-<li><p>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</p>
-</li>
+<li>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</li>
+<li>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</li>
+<li>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</li>
 </ul>
+<p>综上，可以使用如下办法解决</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> SQL_SAVE_UPDATES = <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>并不建议全局设置该变量，小心驶得万年船，尤其对经验不足童鞋来说~</p>
 <p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="external">传送门</a></p>
 
     
@@ -564,6 +564,14 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -665,7 +673,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         
@@ -685,7 +693,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql-问题记录/">mysql 问题记录<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python-多线程/">python 多线程<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql-问题记录/">mysql 问题记录<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql-问题记录-转载/">mysql 问题记录 转载<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python-多线程/">python 多线程<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         
@@ -713,7 +721,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">4</span>
+                <span class="sidebar-badge">5</span>
             </a>
         </li>
         

@@ -12,7 +12,7 @@
     
     <title>
         
-            归档 | 
+            mysql中GROUP_CONCAT的长度问题 | 
         
         DeiMo&#39;s blog
     </title>
@@ -65,15 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://deimo.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | DeiMo&#39;s blog">
+    <meta property="og:title" content="mysql中GROUP_CONCAT的长度问题 | DeiMo&#39;s blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
+        <meta property="article:published_time" content="9月 20, 2017" />
+        <meta property="article:modified_time" content="9月 20, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | DeiMo&#39;s blog">
+    <meta name="twitter:title" content="mysql中GROUP_CONCAT的长度问题 | DeiMo&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -81,13 +84,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://deimo.github.io/archives/index.html" />
+        <link rel="canonical" href="https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "DeiMo&#39;s blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "DeiMo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "剑血封喉，玩事卜攻"
+    },
+    "headline": "mysql中GROUP_CONCAT的长度问题",
+    "url": "https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html",
+    "datePublished": "9月 20, 2017",
+    "dateModified": "9月 20, 2017",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://deimo.github.io"
+    }
+}
+</script>
 
 
     
@@ -290,333 +323,268 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
 
-    <!-- Normal Post -->
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
     
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/">mysql中GROUP_CONCAT的长度问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mysql-问题记录-转载/">mysql 问题记录 转载</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/12/mysql_delete_problem/">mysql非主键删除记录</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这几天在使用mysql过程中发现了这样一个有趣问题：如果在执行delete操作时，where子句不是直接指定条件，mysql就会报错，内容如下：
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/12/mysql_delete_problem/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 12, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mysql-问题记录/">mysql 问题记录</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/05/python多线程技术-二/">python多线程技术(二)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            在《python多线程技术(一)》篇当中，曾粗略介绍了多线程技术及运行状态，及python对于多线程的支持和简单实用，还有印象的朋友一定还记得pyt...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/05/python多线程技术-二/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 05, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/python-多线程/">python 多线程</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/28/python多线程技术(一)/">python多线程技术(一)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            最近一直在学习python的当中多线程技术，感觉使用起来的确比java要方便多～正好乘这个机会，当作是一个记录和总结了
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/28/python多线程技术(一)/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>8月 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/python-多线程/">python 多线程</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/25/怎样使用hexo生成自己的githup主页/">怎样使用Hexo生成自己的githup主页</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            欢迎使用Hexo! Th...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/25/怎样使用hexo生成自己的githup主页/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>8月 25, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/Hexo/">Hexo</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                mysql中GROUP_CONCAT的长度问题
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/deimo.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>DeiMo</strong>
+        <span>9月 20, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC3ElEQVR42u3aQW4jMQwEQP//05trgF1rmuQmMKiak2EnMyoZSIekXn+uvF7Y2NjY2NjY2NjYH8l+xdffv/WPWwe/9f395PW7T8trxsbGxl7NfvjTHyzivAXJs94tN1lPtGZsbGzsC9jvAiCPmfPjq9uXryfZYmxsbGzsPGbe3SEvb+Y/iY2NjY3dC63zHZJmUy9EsbGxsbGr5UQ+NjgHXv70SQmEjY2NfQM7H5p+zutfnW9jY2NjfzC7evXKjHOYne+Zh9bDyrGxsbGXsvNgSJpH+aLzoqXXhMLGxsbGzltL1fIgGSH0Au8cddjY2Nhb2dUCI19WNa7m0VVuKmFjY2OvYFfjZF5IzNtGSfmBjY2NfTO7+Y/+OOQm7aroidjY2NhL2b1R6yTeklZUFEhxNGJjY2PvZidL740Q8pCrHg+qFlHY2NjYu9mTMmBSJJwDKR8eFIINGxsbeym7GmD5g6stql4xU/jasLGxsZeyJ6PTXvzkRzCrUfqwfmxsbOzV7Hwj8iOP50VU20zVJxaaStjY2NiL2EnLvropvTv0IvZhMIyNjY29lF09rJO8k2MmEVX+qrCxsbGXspPYSLYpLzDye1YDtZzb2NjY2CvY1XFsstDewcrqqPg/nDnFxsbGXsGehEp+1LIXZtX7Y2NjY9/Jzo/I9BpM+UB3clgn+hQbGxt7NTsfqfYCJm/9J22jassJGxsb+2Z2/pikqVQ9jpNvRLMUwcbGxl7H7jWJJqOFalhOyhVsbGzse9jzRvykkHi1rmjggY2Njb2UXb1+YtzbKy3KW4+NjY29lD35d78ahHm8zV9jY2Nj38aeL2sCnsde9MVgY2NjX8DO2/356Dcf2SZbMDr0g42NjY1dDYzBsc7kDvk72NjY2Nj56/mn+bZWB8nY2NjYN7CTm04aQ9UiZITExsbGvoxdbdzkZcb8Dnkp8hCB2NjY2EvZ91zY2NjY2NjY2NjYH3N9AffRe+4jqSlwAAAAAElFTkSuQmCC">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=mysql中GROUP_CONCAT的长度问题&url=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=mysql中GROUP_CONCAT的长度问题&url=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html&via=DeiMo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html&title=mysql中GROUP_CONCAT的长度问题" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=DeiMo&#39;s blog&title=mysql中GROUP_CONCAT的长度问题&summary=&pics=https://deimo.github.io/img/favicon.png&url=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://deimo.github.io/2017/09/20/mysql中GROUP-CONCAT的长度问题/index.html&text=mysql中GROUP_CONCAT的长度问题" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是被截取了！！真的是非常令人蛋疼的问题呀，尤其是在类似聚合分组的业务，将数据反馈给客户端时，就更为严重了！多番查找折腾后发现，原来…<br>MYSQL内部对这个是有设置的，默认不设置的长度是1024，可以通过使用<code>show variables like &quot;group_concat_max_len</code>命令来查看该变量值<img src="/img/mysql/group_concat.png" alt="group_concat_max_len"></p>
+<p>想要指定GROUP_CONCAT的长度有两种方法：</p>
+<ol>
+<li><p>修改变量 group_concat_max_len的值</p>
+<ul>
+<li><p>修改session变量，只对该连接客户有效</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> [<span class="keyword">SESSION</span>] group_concat_max_len=<span class="number">102400</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改global变量，对所有连接都生效</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> group_concat_max_len=<span class="number">102400</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>修改配置文件（全局生效）</p>
+</li>
+</ol>
+<p>在mysql启动的配置文件下，进行设置，各平台下配置文件存放的目录不同，配置文件的具体存放位置，不是本文要讨论的内容</p>
+<p>以我的mac os系统为例，我已经将mysql的配置文件写在/etc目录下，只需要在mysqld节点下group_concat_max_len = [size] (size是你定义的大小，上限为4294967295)<img src="/img/mysql/group_concat_len.png" alt="group_concat_len"></p>
+<p>曾经看到过一些文章的说法是将group_concat_max_len设置为-1，然后就可以达到上限4294967295，我在自己的机器下试了试，发现<strong>并不可以</strong>…我的系统是mac os 10.12 ，mysql的版本是5.7.19</p>
+<p>本文参考自CSDN，<a href="http://blog.csdn.net/alibert/article/details/51019351" target="_blank" rel="external">原文地址</a></p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/09/12/mysql_delete_problem/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

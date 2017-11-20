@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017 | 
+            微信小程序踩坑记 | 
         
         DeiMo&#39;s blog
     </title>
@@ -65,15 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://deimo.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017 | DeiMo&#39;s blog">
+    <meta property="og:title" content="微信小程序踩坑记 | DeiMo&#39;s blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
+        <meta property="article:published_time" content="11月 20, 2017" />
+        <meta property="article:modified_time" content="11月 20, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017 | DeiMo&#39;s blog">
+    <meta name="twitter:title" content="微信小程序踩坑记 | DeiMo&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -81,13 +84,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://deimo.github.io/archives/2017/index.html" />
+        <link rel="canonical" href="https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "DeiMo&#39;s blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "DeiMo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "剑血封喉，玩事卜攻"
+    },
+    "headline": "微信小程序踩坑记",
+    "url": "https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html",
+    "datePublished": "11月 20, 2017",
+    "dateModified": "11月 20, 2017",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://deimo.github.io"
+    }
+}
+</script>
 
 
     
@@ -290,392 +323,255 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#踩坑一：微信小程序支付"><span class="post-toc-number">1.</span> <span class="post-toc-text">踩坑一：微信小程序支付</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#踩坑二：微信语音识别"><span class="post-toc-number">2.</span> <span class="post-toc-text">踩坑二：微信语音识别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#踩坑三：微信小程序的通知"><span class="post-toc-number">3.</span> <span class="post-toc-text">踩坑三：微信小程序的通知</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/20/微信小程序踩坑记/">微信小程序踩坑记</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            曾有一段时间，一个叫”包你说”的小程序风靡微信平台，据产品大佬们的调查分析，日流水近百万，每日纯利润达十万~如此可观的收益，公司自然是想着要”截流”...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/20/微信小程序踩坑记/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>11月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/微信小程序-问题记录/">微信小程序 问题记录</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/">mysql中GROUP_CONCAT的长度问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mysql-问题记录-转载/">mysql 问题记录 转载</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/12/mysql_delete_problem/">mysql非主键删除记录</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这几天在使用mysql过程中发现了这样一个有趣问题：如果在执行delete操作时，where子句不是直接指定条件，mysql就会报错，内容如下：
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/12/mysql_delete_problem/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 12, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mysql-问题记录/">mysql 问题记录</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/05/python多线程技术-二/">python多线程技术(二)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            在《python多线程技术(一)》篇当中，曾粗略介绍了多线程技术及运行状态，及python对于多线程的支持和简单实用，还有印象的朋友一定还记得pyt...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/05/python多线程技术-二/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 05, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/python-多线程/">python 多线程</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/28/python多线程技术(一)/">python多线程技术(一)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            最近一直在学习python的当中多线程技术，感觉使用起来的确比java要方便多～正好乘这个机会，当作是一个记录和总结了
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/28/python多线程技术(一)/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>8月 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/python-多线程/">python 多线程</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/25/怎样使用hexo生成自己的githup主页/">怎样使用Hexo生成自己的githup主页</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            欢迎使用Hexo! Th...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/25/怎样使用hexo生成自己的githup主页/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>8月 25, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/Hexo/">Hexo</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                微信小程序踩坑记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/deimo.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>DeiMo</strong>
+        <span>11月 20, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACzUlEQVR42u3aW27DMAwEwNz/0u0FGndJyoEjjb+C9BGOCpTQkq+fI58XNjY2NjY2NjY29iPZr/j54xddfjUq5c2n5J+b14yNjY29Nzsp7t07715Xv3NST1QzNjY29gHs63aSfH/SeOYHWq0ZGxsbG/v6kpCUPvmp6+PDxsbGxp6zezHQdQv8ggaGjY2N/Uh2EtAkTWjtgCEh3Z6lYWNjYz+enQ9Nn/P6o/NtbGxs7AezJ0s2vaWc6ug3b1r/VIKNjY29KfuOwW3v2lAdJOR1YmNjY+/NzketefR/PQZYHBUF72BjY2Ofye5dPyarnNXxQz5OxsbGxt6bXb1s5IcyX7LJj6a5soONjY29BTv6199avpmsb+YrnqNBLzY2NvYW7GbUHnzwHeDJ6BcbGxt7V3Y+fE3aUnJAd7TMqBJsbGzsTdnVUWs+Ep4MhudHho2NjX0au3d56A0MJsFQ9Q+AjY2NfRo7j3LyxZpJOJVXEl1dsLGxsTdlVxd3JjFQddEnR0YVYmNjY2/NvqbO3+8t+uRD5ej3YGNjYx/ArkZLvTgpHy0nzalQGzY2Nvam7FVXgiQAqgZVvcFz1MCwsbGxN2L3Cs0PYh5CLYuxsLGxsTdl54PYpNlUi5ssXOYjDWxsbOy92ZMgvhfT92Ks3gIQNjY29gns6oA2b1FVRnWEXL7SYGNjYx/Dnl8Ayss08dJnteliY2Njn8yuRvb5kOC+Q1zQwLCxsbG/nF29VHyGOgm5sLGxsU9gV5+8aeVBVXVUkLTSaFMJGxsbewt2rxlUo/kEVm2iC64i2NjY2BuxVzWt6pJNdaBbjbewsbGxT2P3QqW80HlIVI2xsLGxsbHn7N5FpTpgjg4dGxsbG7s4iK02s38uEsUrDTY2NvaZ7HmgU214veCp+qfCxsbGPoG9KrjpBUxVWO+ahI2Njb0r+5wHGxsbGxsbGxsb+zHPL6hjSUtmnBAzAAAAAElFTkSuQmCC">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=微信小程序踩坑记&url=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=微信小程序踩坑记&url=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html&via=DeiMo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html&title=微信小程序踩坑记" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=DeiMo&#39;s blog&title=微信小程序踩坑记&summary=&pics=https://deimo.github.io/img/favicon.png&url=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://deimo.github.io/2017/11/20/微信小程序踩坑记/index.html&text=微信小程序踩坑记" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>曾有一段时间，一个叫”包你说”的小程序风靡微信平台，据产品大佬们的调查分析，日流水近百万，每日纯利润达十万~如此可观的收益，公司自然是想着要”截流”了~于是乎…这个重任就落到了本菜菜身上…如果你还不知道”包你说”的话…建议你先尝试着体验下，体验后你就发现，所谓的包你说，最大的难点无非就是在那个语音识别上…其它地方一如正常的CRUD…当然还有微信的小程序支付…让我郁闷了一阵</p>
+<h2 id="踩坑一：微信小程序支付"><a href="#踩坑一：微信小程序支付" class="headerlink" title="踩坑一：微信小程序支付"></a>踩坑一：微信小程序支付</h2><p>先说简单的小程序支付吧…如果你对支付类业务比较熟悉，你总是能够发现，无论是原生支付，还是第三方支付…无论哪个平台…其最核心的步骤无外乎两步：<strong><strong>下单</strong></strong>  and  <strong><strong>通知</strong></strong> </p>
+<p>根据不同的支付文档，有时需要客户端访问商户系统，由商户后端下单，成功后返回客户端，有时这是由商户系统生成下单参数，由客户端去请求下单。而微信的小程序支付则是后一种…嗯，这到没什么…不过需要注意的是…微信的小程序支付文档上有个<strong><strong>再签名</strong></strong>过程，同时，一定要注意<strong><strong>字段名</strong></strong>和<strong><strong>字段示例值</strong></strong> ！！！我就是被可恶的微信字段名坑得不浅…当然这也怨我自己粗心大意…其它诸如签名算法并没有什么难度的…贴一张图以示提醒了<img src="/img/wxapp/wxapp_pay1.jpeg" alt="小程序支付流程"> <img src="/img/wxapp/wxapp_pay2.jpeg" alt="小程序支付参数"></p>
+<p>看到了吗…那个字段的示例值…更可恶的是…下单时的文档参数说明使用的是snakeCase，到了这里…全部变成camelCase…完全看心情有木有…没办法…也怨我看文档不仔细吧…</p>
+<h2 id="踩坑二：微信语音识别"><a href="#踩坑二：微信语音识别" class="headerlink" title="踩坑二：微信语音识别"></a>踩坑二：微信语音识别</h2><p>在完成大概所有的CRUD和支付功能后…开始去玩…看起来最高大上的”语音识别”功能…我们最终选取的语音识别平台是百度…原因嘛…因为它免费…不过话又说起来…百度的语音识别接起来…还真挺简单的…直接提供了pip包，非常方便集成在flask框架中，我按照了示例…自己测试了文件上传…又调用百度语音识别api成功后…觉得自己大事已成…万万没想到的是…微信的语音文件格式并不可以被百度语音直接识别…WTF！怎么办…当时考虑使用讯飞…以为它可以转万能的语音格式…官方查阅之…原来不是…那就只有一种办法了…自行转码…于是又去搜索python的音频转码库…然而都没有对微信那种语音文件格式的支持…所以没办法了…到了这里…要么使用C语言…自己编写转码库和程序…让C调用…要么…嗯…使用第三方外部转码程序…好在Python和Unix/Linux对调用第三方应用支持比较好，这点没什么难度…那么话又说回来了…微信的语音文件到底是什么格式呢？百度之…大佬们众说纷坛…不过一个比较可信的主流的观点是<strong><strong>SILK</strong></strong>文件格式…嗯…于是各种搜索…终于让我找到了一款神器：ffmpeg万能解码器，支持丰富cli处理！在研究使用ffmpeg的时候…发现了 一个有趣的词…<strong><strong>Hall of Shame</strong></strong>有兴趣的朋友们可以自己去看看鹅厂的黑历史…然鹅…一番折腾后发现…ffmpeg并没有支持silk音频的解码库…需要自己额外下载…WTF！后来我又百度之…终于…发现了这位大佬,<a href="https://github.com/kn007/silk-v3-decoder" target="_blank" rel="external">传送门</a>，于是我按照文档…发现…居然告诉我这个<img src="/img/wxapp/decoder_fail.jpg" alt="转码错误"></p>
+<p>WTF！不是标准SILK格式，那是什么？！千翻查找…叫我发现了这个…<a href="http://www.iosre.com/t/topic/3199" target="_blank" rel="external">传送门</a>，原来是在文件头信息中多了一个无用的空字节…于是…我在自己的mac中搜索微信接收到的语音文件，发现是.aud.silk结尾…嗯，应该称之为silk变种文件比较合适。于是按照思路…先去掉第一个字符…然后转码…这次果然有效！！！然后再调用百度语音识别，居然…成功了！不过值得一提的是…我在转码时，没有使用那个Shell脚本，而是用到了<a href="https://github.com/Kronopath/SILKCodec" target="_blank" rel="external">这个</a>，这份转码库的用法很简单：download下来后，进入ARM平台，然后make编译出可执行程序…编译过程可能会提示你安装一些编译的工具…（如果你没安装的话）之后就可以使用python去调用这个外部的第三方的程序了。这样就实现了微信的语音文件从上传到转码再到识别的过程，初步完成该核心功能，后续的识别率优化…可以考虑比对拼音…这样就可以避免同音不同字的识别尴尬，在一定程度上…提高识别率。</p>
+<h2 id="踩坑三：微信小程序的通知"><a href="#踩坑三：微信小程序的通知" class="headerlink" title="踩坑三：微信小程序的通知"></a>踩坑三：微信小程序的通知</h2><p>用过摩拜单车小程序的童鞋们肯定都知道，摩拜单车在解锁和开锁后都会向用户发送一条通知。好吧，其实这个通知没什么难度，唯一觉得比较不舒服的是它的参数…嗯，尤其你要注意对于微信的access_token间断刷新…这个使用定时任务+redis就可以很好处理。接下来就是通知的核心参数form_id对于该参数…如果有支付过程的话，这个参数就会好拿很多…如果没有的话…那就会稍稍麻烦…当然我也只是研究使用了…支付情形…剩下的情形留着以后再去考虑吧</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

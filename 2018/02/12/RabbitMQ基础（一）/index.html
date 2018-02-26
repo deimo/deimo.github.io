@@ -584,7 +584,7 @@
 <p>注意在Mac OS 10.12以后，不在允许brew使用Root权限，如果只是单单纯学习使用，可使用官网二进制程序集<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="external">地址</a></p>
 </blockquote>
 <h4 id="RabbitMQ的消息通信模型"><a href="#RabbitMQ的消息通信模型" class="headerlink" title="RabbitMQ的消息通信模型"></a>RabbitMQ的消息通信模型</h4><h6 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h6><p>消息（message）被发布者（publisher）发送给交换机（exchange），交换机常常被比喻成邮局或者邮箱。然后交换机将收到的消息根据路由规则分发给绑定的队列（queue）。最后AMQP代理会将消息投递给订阅了此队列的消费者，或者消费者按照需求自行获取。如下图</p>
-<p><img src="./img/rabbitmq/hello-world.png" alt="rabbitmq消息通信模型"></p>
+<p><img src="/img/rabbitmq/hello-world.png" alt="rabbitmq消息通信模型"></p>
 <h6 id="RabbitMQ的相关概念介绍"><a href="#RabbitMQ的相关概念介绍" class="headerlink" title="RabbitMQ的相关概念介绍"></a>RabbitMQ的相关概念介绍</h6><ol>
 <li><p>生产者和消费者</p>
 <blockquote>

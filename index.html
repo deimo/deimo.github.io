@@ -153,7 +153,7 @@
 <p>最后我想说的是…对于一款未遇到性能瓶颈的产品…任何一名后端工程师都足以胜任，但是在BAT下，那些看似简单的功能和操作…却毫无例外地凝聚着全球无数最顶尖工程师们的智慧和心血…所以拜托各位圈外的亲们…你们在享受程序员构建的自动化世界时，不要再说：不就是在电脑键盘上敲敲嘛…怎么薪资比我高那么多…我特么在xx地方做xx那么辛苦才挣那么点儿…</p>
 <p>不过呢～我是个例外～因为，我可能是个假程序员～啊，哈哈哈哈哈～😭😭😭</p>
 <h4 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h4><p>如果你喜欢我的文章，请扫描以下二维码，加我微信，并给我小额赞赏，如果没有特殊声明，赞赏…将用于改善我的个人生活~比如：零食等~😁</p>
-<p><img src="/img/life/qrcode.jpeg" alt="二维码"></p>
+<p><img src="/img/life/qrcode.jpg" alt="二维码"></p>
 
 	
 	</div>
@@ -236,7 +236,7 @@
 <p>根据提示，输入你刚刚用于travis-ci网站登录的Github账户名及密码。</p>
 <p>做好基本的项目配置之后，我们需要配置持续部署的自动运行脚本。</p>
 <p>首先使用<code>travis encrypt-file</code>命令对你刚刚在开发环境生成的密匙进行加密（这样一来可以放心地将密匙保存在公开的开源项目当中）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 此处的--add参数表示自动添加脚本到.travis.yml文件中</div><div class="line">travis encrypt-file ~/.ssh/id_rsa --add</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> 此处的--add参数表示自动添加脚本到.travis.yml文件中</span></div><div class="line">travis encrypt-file ~/.ssh/id_rsa --add</div></pre></td></tr></table></figure>
 <p>之后再打开.travis.yml文件，会发现多了一个<code>before_install</code>的钩子</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">before_install:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="bullet">-K</span> <span class="string">$encrypted_830d3b21a25d_key</span> <span class="bullet">-iv</span> <span class="string">$encrypted_830d3b21a25d_iv</span></div><div class="line"><span class="bullet">    -</span><span class="string">in</span> <span class="string">id_rsa.enc</span> <span class="bullet">-out</span> <span class="string">~\/.ssh/id_rsa</span> <span class="bullet">-d</span></div></pre></td></tr></table></figure>
 <p>Travis 一共提供了7个钩子，总结如下</p>
@@ -425,8 +425,8 @@
 <p>有了语言基础，再学起android来~果然事半功倍，原来几个小时也学不明白的东西~现在几十分钟下来~豁然开朗：原来是这么简单的东西~ 就这样…对于android我终于算是入门了~之后在校内我积极地和老师、同学（研究生）参与各种比赛，做一些学生项目~也在大连市有过近两个月的Android实习经历，可以说那个时候的我对于Android程序设计基础该是比较熟悉了~后来的后来我开始前往进阶之路：各种框架的学习与使用~最新系统AP的I特性~设计模式…view适配…动画…RPC…然而~也不知为何…我未能坚持下去…也许是进阶之路过于漫长…也许是自己过于“花心”~我最终抛弃了android客户端，选择了Python后端~</p>
 <p>是的，从我开始接触互联网到成为一名合格程序员，这期间全是靠着自己的胡乱摸索和摸爬滚打…直至今日~</p>
 <p>欲知后事如何~请看下篇连载~  😈</p>
-<h4 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a>结尾：</h4><p>如果你喜欢的文章，扫描以下二维码，加我微信，给我小额赞赏</p>
-<p><img src="/img/life/qrcode.jpeg" alt="二维码"></p>
+<h4 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a>结尾：</h4><p>如果你喜欢我的文章，扫描以下二维码，加我微信，给我小额赞赏</p>
+<p><img src="/img/life/qrcode.jpg" alt="二维码"></p>
 
 	
 	</div>
@@ -932,19 +932,19 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
+		
 			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
 		
 			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
+			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
+		
 			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
-		
-			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
 		
 			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
 		
-			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
+			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
 		
 		 
 		</ul>

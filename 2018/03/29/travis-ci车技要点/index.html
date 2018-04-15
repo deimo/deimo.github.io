@@ -173,7 +173,7 @@
 <p>根据提示，输入你刚刚用于travis-ci网站登录的Github账户名及密码。</p>
 <p>做好基本的项目配置之后，我们需要配置持续部署的自动运行脚本。</p>
 <p>首先使用<code>travis encrypt-file</code>命令对你刚刚在开发环境生成的密匙进行加密（这样一来可以放心地将密匙保存在公开的开源项目当中）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 此处的--add参数表示自动添加脚本到.travis.yml文件中</div><div class="line">travis encrypt-file ~/.ssh/id_rsa --add</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> 此处的--add参数表示自动添加脚本到.travis.yml文件中</span></div><div class="line">travis encrypt-file ~/.ssh/id_rsa --add</div></pre></td></tr></table></figure>
 <p>之后再打开.travis.yml文件，会发现多了一个<code>before_install</code>的钩子</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">before_install:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="bullet">-K</span> <span class="string">$encrypted_830d3b21a25d_key</span> <span class="bullet">-iv</span> <span class="string">$encrypted_830d3b21a25d_iv</span></div><div class="line"><span class="bullet">    -</span><span class="string">in</span> <span class="string">id_rsa.enc</span> <span class="bullet">-out</span> <span class="string">~\/.ssh/id_rsa</span> <span class="bullet">-d</span></div></pre></td></tr></table></figure>
 <p>Travis 一共提供了7个钩子，总结如下</p>

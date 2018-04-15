@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>与后端的爱恨情仇 | DeiMo&#39;s blog</title>
+  <meta name="author" content="DeiMo">
+  
+  <meta name="description" content="与后端的爱恨情仇前言接上篇——《Android开发从小白到入门再到放弃》
+从客户端到后端，从JAVA到Python…往后又该是何去何从…程序设计真的超有意思呢~总会冒出一些让你不明觉厉的新名词~总会有些你从未接触的新鲜玩具
+正文印象中第一次接触后端…是我在大连实习时~那个时候做了一个小屁小屁（20多">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="与后端的爱恨情仇"/>
+  <meta property="og:site_name" content="DeiMo&#39;s blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">DeiMo&#39;s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> 与后端的爱恨情仇</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="与后端的爱恨情仇"><a href="#与后端的爱恨情仇" class="headerlink" title="与后端的爱恨情仇"></a>与后端的爱恨情仇</h2><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>接上篇——《Android开发从小白到入门再到放弃》</p>
+<p>从客户端到后端，从JAVA到Python…往后又该是何去何从…程序设计真的超有意思呢~总会冒出一些让你不明觉厉的新名词~总会有些你从未接触的新鲜玩具</p>
+<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>印象中第一次接触后端…是我在大连实习时~那个时候做了一个小屁小屁（20多个API接口，7张表的样子）的android项目…不过麻雀虽小，但也五脏俱全~</p>
+<p>第一次嘛…总是痛并快乐着😈…想到我第一次真正意义上与后端对接时（以前使用Bmob API，下载SDK接入直接在本地操作数据表），那真是令人倍感沮丧…就简简单单仨儿接口…却没有一次成功…当然啦~毫无疑问…全是我客户端的问题…💀自然而然…内心产生了一阵阵劝退的声音…不过好在…有一群暖心的朋友…哎，我直接贴图吧</p>
+<p><img src="/img/life/chen.jpg" alt="朋友的鼓励"></p>
+<p><img src="/img/life/group.jpg" alt="大佬们的鼓励"></p>
+<p>那个时候我的连<strong>POST</strong>请求都没能整明白…回到学校后倍受打击…质疑自己是不是不适合干这行…不过朋友，前辈们的鼓励和经验又让我重拾信心~</p>
+<p>从哪跌倒，自然就得从哪爬起嘛～那个时候就暗自下定决心，自己也一定要会后端~（大概那个时候，我所理解的后端…也就是简单的API吧…）实习时公司使用的后端技术是php技术栈，据说是世界最好的语言～😵</p>
+<p>哇，有点害怕呀…难道我也要去学世界最好的语言并且是宇宙第一的Php～？反复推敲对比后，终于要在java，python，php中做抉择了…其实碍于当时自己的眼界…也仅限于此…老实说，如果那时的我早日体验到ruby和node.js的优雅及强大，也说不定转到ruby或者node去了呢～当然啦，选择python，不仅仅是因为它可以作为一门优秀的服务端脚本语言，更重要的是它对数据处理的强大支持以及在未来人工智能的无限潜力（那个时候是2016年）～</p>
+<p>正是如此，我才敲定了python～不过万万没想到的是…日后毕业入职的第一份job将会是Python后端开发工程师～不知是命中注定还是机缘巧合又或许是我的强烈坚持和洞察先机…我毕业之时已是2017年…移动客户端领域已基本成熟~移动客户端领域…貌似很难再对其传统业务做进一步的深化与扩展了…正是基于此种论断…所以待我去到羊城时并没有投递有关Android开发工程师的岗位，而是选择Python！那个时候…我所有Python的学习及编写代码的时间加起来…貌似还不足一个月…😢</p>
+<p>有时总会慨叹自己脸实在黑得口怕，在选择和机遇上貌似总是不尽人意…第一家公司…至今还拖欠着我三个月的实习工资…～不过倒也无所谓了，无论如何我都不后悔，从哲学角度来看这世上就从没白费的努力～这样的思维和态度很符合一位科技工作者，而非一个洞察商机的企业家，不是嘛？～难道你能说在牛顿万有引力横空出世以前，那些拿着望远镜看了一辈子星星的科技工作者就是zz？从这点来看，拒绝为互联网申请专利的“互联网之父”蒂姆比起微软帝国的老大盖茨更加值得令人尊敬和敬佩～一个是科学家～一个是企业家～然而事实是…知道盖茨的朋友远比知道蒂姆的多…呜呜呜呜…心塞塞～貌似学术明星在大众知名度里总是无法同娱乐明星相比较吧…不过这也是显而易见的，两者的群众基础本就不在同一数量级上…</p>
+<p>回过头继续说说为什么说说选择后端(ps：这里木有轻视各位前端朋友的意思嗷，纯粹是个人心路旅程及个人观点～)对于任何一款成功的互联网产品而言…随着自身的发展，累计的用户和数据逐渐增多…有三个问题会让你如坐针毡：</p>
+<ol>
+<li>我该怎样存储更大的数据量？</li>
+<li>我该怎样更加快速地响应用户的操作？</li>
+<li>我该怎样在同一时刻为更多的用户提供服务(并发)？简而言之就是“更大”，“更快”，“更高”～！</li>
+</ol>
+<p>任何一家互联网企业在自己的发展和产品迭代中…其本质无非也是上述问题在不同阶段的解决方案～我们知道早期计算机的主要任务是为了处理数值计算，而随着信息量的迅猛发展，现在计算机的任务更多的是处理的“字符串”，所以如果你有一款基础软件(如操作系统，数据库)…它能将字符串处理的速度提高哪怕万分之一，那么所产生的经济价值和世界影响难以估量…也许今后计算机的任务将是直接处理富媒体信息，好期待那一日的到来…～😍</p>
+<p>上述3个问题的产生，首先在学术界催生了数据存储的NoSQL理论，之前的RDBMS(关系型数据库管理系统)理论在更大的数据量前显得力不从心…然后拉开了各个互联网企业之间的距离，最后是带来了一系列的财富和机遇，大数据、数据挖掘、分布式处理，各种概念再次响起并深入人心～基于大数据分析的精准网络个人营销正逐渐成为现实…在这个移动互联网浪潮的发展已过去将半的背景下，“大数据+”概念貌似呼之欲出😎（不过…怎么比…貌似也比不过…势头更猛的…“人工智能”和“区块链”吧😏…）~</p>
+<p>最后我想说的是…对于一款未遇到性能瓶颈的产品…任何一名后端工程师都足以胜任，但是在BAT下，那些看似简单的功能和操作…却毫无例外地凝聚着全球无数最顶尖工程师们的智慧和心血…所以拜托各位圈外的亲们…你们在享受程序员构建的自动化世界时，不要再说：不就是在电脑键盘上敲敲嘛…怎么薪资比我高那么多…我特么在xx地方做xx那么辛苦才挣那么点儿…</p>
+<p>不过呢～我是个例外～因为，我可能是个假程序员～啊，哈哈哈哈哈～😭😭😭</p>
+<h4 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h4><p>如果你喜欢我的文章，请扫描以下二维码，加我微信，并给我小额赞赏，如果没有特殊声明，赞赏…将用于改善我的个人生活~比如：零食等~😁</p>
+<p><img src="/img/life/qrcode.jpeg" alt="二维码"></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一页</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/03/29/travis-ci车技要点/" type="button" class="btn btn-default ">下一页<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-04-16 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/个人随笔/">个人随笔<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 DeiMo
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

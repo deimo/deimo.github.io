@@ -1,1441 +1,1004 @@
-<!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>DeiMo&#39;s blog</title>
+  <meta name="author" content="DeiMo">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Title -->
-    
-    <title>
-        
-        DeiMo&#39;s blog
-    </title>
+  
+  <meta property="og:site_name" content="DeiMo&#39;s blog"/>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
+    <meta property="og:image" content=""/>
+  
 
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="DeiMo">
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-    <!-- Site Verification -->
-    
-    
+  <script src="/js/jquery-2.0.3.min.js"></script>
 
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="DeiMo&#39;s blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://deimo.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="DeiMo&#39;s blog">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="">
-    
-
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="DeiMo&#39;s blog">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://deimo.github.io" />
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="https://deimo.github.io" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Website",
-    "publisher": {
-        "@type": "Organization",
-        "name": "DeiMo&#39;s blog",
-        "logo": "/img/favicon.png"
-    },
-    "url": "https://deimo.github.io/index.html",
-    "image": {
-        "@type": "ImageObject",
-        "url": "/img/favicon.png"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://deimo.github.io"
-    },
-    "description": ""
-}
-</script>
+  <!-- analytics -->
+  
 
 
 
-
-    
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
-
-    <!-- Import CSS & jQuery -->
-    
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-weibo {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzUuMiA3OWMtOC42IDMtMjIuOCAxMi40LTMyLjggMjEuOC04LjIgNy44LTIyLjIgMzEtMjQuNiA0MC42LTEgNC4yLTEuNiAxNjctMS42IDM2NC42IDAgMjg0LjguNCAzNTguNCAyLjYgMzY0IDEuNCAzLjggNi44IDEzIDEyIDIwLjQgOC44IDEyLjggMjQgMjUuNCA0MS44IDM1IDYgMy40IDI3IDMuNiAzNjcuNCAzLjYgMjg2LjIgMCAzNjIuNi0uNiAzNjktMi42IDE5LjgtNi4yIDUxLjItMzcuNiA1Ny40LTU3LjQgMi02LjQgMi42LTgyLjYgMi42LTM2OFYxNDFsLTQuMi05Yy0xMS42LTI0LTM5LjItNDkuOC01OC4yLTU0LjItNC4yLTEtMTY4LjYtMS42LTM2NS42LTEuNi0zMDAgMC0zNTkuMi40LTM2NS44IDIuOHptNTU4LjYgMTY5YzguNiAxLjIgMTYuNCA0IDI0IDguNiA2LjIgMy42IDE1LjIgOC4yIDIwLjIgMTAuMiA1LjggMi4yIDE0LjYgOC44IDI1IDE4LjggMjUuNCAyNC44IDMyLjggMzQuOCAzNy44IDUxIDIuNiA4IDcuNCAxOS44IDEwLjggMjYuNCA3LjggMTQuNiAxMS42IDQyLjYgOS40IDY5LTEgMTQuMi0yLjIgMTguNi03LjQgMjYuNC0zLjIgNS4yLTkgMTIuMi0xMi44IDE1LjYtMTMuOCAxMi0zNCA1LjgtMzguOC0xMi0xLjYtNi0xLjQtMTEuNCAxLjItMjMuNCA0LjItMjAgMy00Ni0yLjYtNTguNi0yLjItNS04LTEyLjYtMTIuOC0xNi44LTQuOC00LjItMTQuNi0xNi40LTIxLjgtMjYuOC03LjItMTAuNi0xNS4yLTIwLjgtMTgtMjIuOC0yLjgtMi0xMi42LTYtMjItOS0xNC40LTQuNC0yMC44LTUuNC00My01LjYtMjgtLjItMzEuNC0xLjItNDIuNC0xMS42LTcuNC03LTguNi0xNS42LTMuOC0yNS4yIDctMTMuMiAxNi40LTE2IDU0LjItMTYgMTYuNiAwIDM1LjguOCA0Mi44IDEuOHptLTIxMy42IDc1LjZjMjAuMiAxNS40IDIwLjYgMTYuNCAyMiA0OCAuNiAxNSAxLjggMjkgMi42IDMxIDIuOCA2LjIgMTEgNi42IDIxLjYuNiA1LjQtMy4yIDE0LTUuOCAyMC02LjQgNS44LS42IDE4LjgtMi40IDI5LTQuMiAxNy4yLTMgMTkuNC0zIDM2IC40IDMyIDYuNiAzNS44IDkuMiA0NC4yIDMxLjYgNS4yIDE0IDUuNCAyMS40IDEuMiAzMi44LTIuMiA1LjQtMi44IDExLTIgMTUuNCAxLjggMTAgMTcuNiAyMy40IDM1IDMwLjIgMTEuMiA0LjIgMTYuMiA3LjYgMjcgMTkgMTkuMiAxOS44IDIwLjIgMjMgMjAgNTktLjIgMzUtLjQgMzUuNC0xOS44IDYzLjYtMTMuOCAxOS44LTMyLjQgMzguNi00OSA1MC01IDMuNC0xMi4yIDguOC0xNS44IDEyLTMuOCAzLjItMTEuNiA4LTE3LjIgMTAuNC01LjYgMi42LTE0LjYgNy40LTE5LjggMTAuNi01LjIgMy40LTE1LjggNy42LTIzLjggOS40LTggMi0yMS4yIDYuNi0yOS42IDEwLjItMjIuNCAxMC0zNi4yIDExLjItMTIxLjggMTAuNGwtNzUtLjYtMTktOC40Yy0xMC42LTQuNi0yNS40LTkuOC0zMy0xMS42LTcuNi0xLjYtMTgtNS44LTIzLTlzLTE0LjItOC0yMC40LTEwLjhjLTE4LTgtNTkuNC00Ni4yLTY2LTYxLjItMi4yLTUtNy40LTE0LjQtMTEuNC0yMC44bC03LjItMTJWNTQ5bDcuNi0xMy42YzQuMi03LjQgOS40LTE4LjYgMTEuNi0yNC44IDMuOC0xMS40IDEzLjQtMjcuOCAyNC44LTQyLjYgMjAuMi0yNi4yIDM4LjQtNDYuOCA1My02MCA5LjItOC4yIDIxLTE4LjYgMjYtMjMuMiA1LTQuNCAxMy4yLTExIDE4LjYtMTQuNiA1LjItMy40IDkuNC03LjIgOS40LTggMC0xIDUuNi00LjYgMTIuNi04LjIgNi44LTMuOCAxNi40LTkuNiAyMS40LTEzLjIgNS0zLjYgMTQuNC04IDIxLTkuOCA2LjYtMiAxNy44LTYuNiAyNS0xMC4yIDEyLTYuMiAxNC40LTYuOCAzMi40LTYuOGgxOS40bDEyLjQgOS42em0yMDMuNiAxMy4yYzMgMS42IDYuNiA0LjQgOCA2IDEuNiAxLjggOS40IDcgMTcuNCAxMS42IDE3IDkuNiAxOSAxMyAyNCA0MiAzLjQgMjAuNCAyLjYgMzIuMi0zLjQgNDMuOC03LjYgMTUuMi0yMi44IDIwLjYtMzEuMiAxMS4yLTctNy42LTkuMi0xMy44LTEwLjYtMjkuNi0xLjItMTMuMi0yLjQtMTYuNC05LjYtMjcuMi0xMS0xNi0xNi44LTIwLjYtMjcuMi0yMC42LTEwIDAtMjQtNi4yLTI3LTExLjYtNS44LTEwLjguNC0yNC42IDEyLjQtMjguNCA4LjYtMi42IDQwLjItLjggNDcuMiAyLjh6Ii8+PHBhdGggZD0iTTQyNCA0NzcuNGMtMzIuNiAzLjYtNDcuOCA3LTYxLjggMTMuOC04IDQtMTkgOC40LTI0LjIgMTAtNS4yIDEuNi0xMi40IDUtMTYuMiA3LjgtMy44IDIuNi0xMSA3LjYtMTYuMiAxMS0xMy40IDguOC0zNSAzMy4yLTM4LjggNDQtMS44IDUtNS40IDE0LjQtOC4yIDIxLTguOCAyMS4yLTguMiAyNi44IDQgNTMgMTAuNiAyMi42IDExIDIzLjIgMjcuNiAzNi40IDIxIDE2LjggMjMuNiAxOC40IDUwLjggMjguMiAyMC4yIDcuMiAyNC42IDggNTQgMTAgMTcuNiAxLjIgNDUuNiAyLjIgNjIgMi4ybDMwIC4yIDE3LjQtOC40YzkuNi00LjYgMjIuNC05LjYgMjguMi0xMS40IDYtMS44IDE1LjQtNi4yIDIwLjgtMTAgNS40LTMuNiAxMy40LTguNiAxNy42LTEwLjggOS4yLTQuNiAzOS0zNC40IDM5LTM5IDAtMS42IDMuOC0xMC4yIDguNC0xOC44IDcuOC0xNC4yIDguNi0xNi44IDguNC0yOS42LS4yLTEyLjgtMS0xNS44LTEwLjYtMzQuNi0xMy40LTI2LjItMzAuNC00My42LTUwLjItNTEuNC03LjItMi44LTE2LjItNy0yMC05LjYtMTEuNC03LjYtMTcuNi05LjItNDguOC0xMi40LTI3LjYtMi44LTU2LjYtMy40LTczLjItMS42em0zOS40IDQ0LjRjMTEuMiAyLjIgMjIuNiA1IDI1IDYuNCA3IDMuNiAyNiAyMS44IDMwLjggMjkuNCA4LjYgMTMuNCAxMSA1NCA0LjYgNzctMi42IDkuNi0xOC44IDI3LjYtMzkuNCA0NC4yLTE1LjYgMTIuNC0xNyAxMy0yOS44IDE0LTcuNi44LTIyLjQgMi4yLTMzIDMuNi0yMi42IDIuNi00NS42IDEtNTMuOC0zLjgtMy4yLTItOC02LjgtMTAuOC0xMC44LTIuNi00LjItOC40LTEwLjQtMTIuOC0xMy44LTguMi02LjgtMTMuNC0xNi40LTE5LjQtMzctMy44LTEzLjItMi44LTIxLjggNS4yLTQ3LjYgMy4yLTEwLjQgNi0xNC42IDE3LjQtMjUuOCAxMi40LTEyLjIgMjMuOC0yMi4yIDMzLjItMjkuNiA0LTMgMzguNi05LjQgNTMuNC05LjggNSAwIDE4LjIgMS42IDI5LjQgMy42eiIvPjxwYXRoIGQ9Ik0zODcuMiA2MDZjLTEyLjIgMy44LTE4LjIgMTMuNC0xNSAyNC42IDUuOCAyMS4yIDI3LjggMjUuOCA0MC42IDguNiA2LjYtOC44IDcuOC0xNi4yIDQuMi0yNC00LjgtMTAuMi0xNS40LTEzLjQtMjkuOC05LjJ6Ii8+PC9zdmc+);
-    }
-    
-    
-    
-    
-    .footer-sns-github {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNCA3OGMtNi40IDEuNC0yNi40IDE0LjItMzYgMjIuOC04IDcuMi0yMiAyOS44LTI0LjQgMzkuMi0xLjYgNi40LTIgMTEzLjItMS42IDM2OCAuNiAyOTkuNCAxIDM1OS44IDMuNCAzNjQgMTEgMjAuMiAyMS42IDMyLjQgMzcuMiA0MyAxNS42IDEwLjYgMTcuMiAxMS4yIDM0LjIgMTMuMiAxMC42IDEuMiA2My40IDEuNiAxMjcuNiAxLjRsMTA5LjYtLjYgNi02LjggNi4yLTYuOC0xLjItMjUuMmMtLjgtMTUuOC0uMi0zMy40IDEuNC00Ny4yIDMtMjUuNCAxLjQtMzYuMi02LTQzLjItNS00LjYtNi4yLTQuOC0zMC42LTQuMi0yNy42LjgtMjQgMS42LTY4LjgtMTYtOC42LTMuNC0yMi42LTE4LTI4LjQtMjkuOC0xMS40LTIyLjgtMjctNDUtMzkuMi01NS42LTE0LTEyLjItMTkuOC0yMC44LTE5LjgtMjguNiAwLTExLjYgMTMuNi0xMi42IDMzLjItMi40IDE2LjYgOC44IDIwLjggMTIuNCA0MC44IDM2LjIgMjQuMiAyOC42IDMxIDMzLjYgNTQgMzkuNiAxNS4yIDQgNDIuMiAzIDUxLjQtMS44IDktNC42IDE4LTE1LjIgMjQuNC0yOS4yIDExLjQtMjQuMiA3LjQtMzEuMi0yMC42LTM2LjgtOS44LTItMjkuMi04LTQzLjQtMTMuNC00MC40LTE1LjgtNjQuNi0zNy40LTg1LjQtNzYuMi0xMS42LTIxLjgtMTUuNC0zMy0xOC4yLTUzLjYtNC4yLTMyLjItNC44LTYwLjItMS40LTg0IDMuNC0yMy44IDYuOC0zMi44IDIwLjItNTQgNC02IDguOC0xNS42IDExLTIxLjQgMy44LTEwIDMuOC0xMS42IDEtMzAtNS4yLTM0LjItMy4yLTUyLjQgNy42LTcwLjIgNy4yLTEyLjIgMTUtMTcuMiAyNC4yLTE1LjggMTIuOCAyLjIgNTIgMTcuNCA2Ni44IDI2LjIgMjYgMTUgMjkgMTUuNCA4Mi40IDcuMiAyNC42LTMuOCAzMy44LTQuMiA2MC0zLjIgMTcgLjYgNDEuNCAzIDU0IDUuMiAzOC40IDYuNiA0OS42IDUuMiA3My0xMCA2LjYtNC4yIDE3LjQtOS40IDI0LTExLjYgNi42LTIuMiAxNi01LjggMjEtOC4yIDEzLTYgMjgtNS42IDM1LjYuOCAxMi40IDEwLjQgMTguNiA0MS40IDE0LjQgNzEuNi00LjQgMzAuNi0zIDM5LjQgOC40IDUzLjggMy40IDQuNCAxMS4yIDE5LjIgMTcuNCAzMy4yTDc3NSA0NDN2NzhsLTEwIDI4Yy0xNS4yIDQzLjItMzYuOCA3My4yLTY2LjIgOTIuOC0xMy40IDguOC01NyAyNS40LTc2LjggMjktMjguMiA1LjItMzMuMiAxMi42LTIyIDMyLjIgMTEuMiAxOS40IDEyLjQgMzIuOCAxMS42IDEyOS42bC0uNiA4NS44IDUuNCA0LjZjMy42IDMgOS4yIDUuMiAxNiA2IDUuOC44IDYwLjIgMSAxMjAuNi42IDEwOC40LS42IDExMC4yLS42IDExOS01IDI0LTExLjYgNDAtMjcuNCA1MS42LTUwLjZsNS40LTExIC42LTM0N2MuNC0yMjMtLjItMzUzLjQtMS40LTM2NS0yLTE3LTIuNi0xOC42LTEzLTM0LTEwLjYtMTUuNC0yMi44LTI2LjItNDMuMi0zNy4yLTQuMi0yLjQtNjQuNi0yLjgtMzY2LTMuMi0xOTguNiAwLTM2NCAuNC0zNjcuNiAxLjR6Ii8+PC9zdmc+);
-    }
-    
-    
-    .footer-sns-linkedin {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xNDEgNzcuOGMtNy40IDEuOC0xMS4yIDMuOC0yNi44IDE0LjItMTIuNCA4LjQtMjEuNiAxOC44LTMxLjYgMzdMNzcgMTM5bC0uNiAzNTljLS40IDI1NC40LjIgMzYxLjYgMS42IDM2Ny44IDMuNiAxNC40IDIwLjYgMzYuOCAzNS44IDQ3LjYgNy4yIDUgMTYuMiAxMC40IDE5LjYgMTIgNS40IDIuMiA2Ny42IDIuNiAzNzEuMiAyLjJsMzY0LjYtLjYgMTEuOC03YzE1LTkgMzAtMjQgMzktMzlsNy0xMS44LjYtMzYyLjZjLjQtMjk3IDAtMzYzLjgtMi4yLTM3MC0xLjQtNC4yLTYuOC0xNC0xMS44LTIyLTcuNi0xMS40LTEyLjQtMTYuMi0yNC40LTI0LjQtOC40LTUuNi0xOS0xMS0yMy44LTEyLjItOS44LTIuMi03MTUtMi40LTcyNC40LS4yek0yOTIuMiAxOTZjMTYgNS40IDI1LjQgMTEuNiAzNS42IDIzLjQgMjYuNCAzMC42IDI3LjYgNjMuNCAzLjggOTgtNi40IDkuNC0yNS4yIDIzLjItMzguMiAyOC0xMi44IDQuNi00MC4yIDQuMi01MS44LS44LTQzLTE5LjItNjIuOC02NC42LTQ1LTEwMy40IDE4LTM5IDU3LjgtNTcuOCA5NS42LTQ1LjJ6bTQwMyAyMDBjMjAuMiAzLjQgMjYgNS40IDM4LjYgMTIuNiAzMy42IDE5LjIgNDguMiAzOS4yIDYwIDgyLjQgNi44IDI0LjQgOCA1MSA4LjQgMTc1LjIuMiAxMzAuMi40IDEyOC4yLTExLjIgMTMzLjQtMy42IDEuNi0yMC40IDIuNC01My42IDIuNC00NC42IDAtNDktLjQtNTQuOC00LTMuNi0yLjItNy02LTcuNi04LjQtLjYtMi42LTEuNC01Mi44LTEuNi0xMTEuNi0uNi0xMDEuMi0xLTEwNy44LTQuOC0xMjEuNC03LTI0LjYtMTkuNi00MS0zOC4yLTQ5LjgtMTcuMi04LjItNDcuOC00LjgtNjYuOCA3LjQtMTguNiAxMi0zMS40IDMzLTM1LjYgNTgtMS4yIDcuNi0yIDUzLjgtMiAxMTMuNCAwIDEwOS4yIDAgMTA5LTExIDExNC0zLjYgMS42LTIwLjYgMi40LTU0LjggMi40LTQ3IDAtNTAtLjItNTQuOC00LTMtMi40LTYtNy02LjgtMTAuNi0uOC0zLjYtMS4yLTkwLjQtLjYtMTkzbDEtMTg2LjggNS42LTQuOGM1LjYtNC44IDUuOC00LjggNTMuNC00LjggMzEuMiAwIDQ5LjYuOCA1Mi44IDIuMiA2IDIuOCA4LjYgOSAxMC40IDI0LjggMi40IDIzIDExLjggMjUuMiAyOC40IDcgMTEuOC0xMi44IDI5LjYtMjUuMiA0NC40LTMwLjggMjUuMi05LjQgNjQuNC0xMS40IDEwMS4yLTUuMnptLTM3NC40IDRjMTIgNC42IDExLjQtNi40IDExLjQgMjAxIC4yIDE4MC44IDAgMTg5LjYtMy42IDE5My40LTIgMi4yLTUuOCA0LjgtOC40IDUuOC0yLjYgMS4yLTI2LjIgMi01Mi42IDItNTEuOCAwLTU2LjYtMS02MS40LTExLjYtMS42LTMuNC0yLjItNjEuNC0yLjItMTkwLjggMC0xNzAuNC4yLTE4Ni42IDMuNC0xOTEuOCAxLjgtMy4yIDUuMi02LjYgNy40LTcuOCA1LjQtMi42IDk5LjItMi44IDEwNi0uMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-zhihu {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzYuOCA3OC44Yy04LjYgMi44LTI0IDEyLjQtMzMuNiAyMS04LjYgNy44LTIxLjQgMjcuOC0yNC40IDM3LjgtNC4yIDE0LTQgNzIzLjQgMCA3MzMuNCA4LjYgMjAuNiAzNi44IDQ4LjYgNTYgNTUuNiA5IDMuNCA3NDcuNCAzLjQgNzU2LjQgMCAxOS44LTcuMiA0OS0zNi42IDU2LTU2LjIgMi4yLTYgMi42LTc1LjYgMi44LTM2Ni40IDAtMjMzLjgtLjYtMzYxLjQtMi0zNjYtMS4yLTMuOC02LjYtMTMuOC0xMi4yLTIyLjItOC4yLTEyLjItMTMuNC0xNy40LTI1LjgtMjUuNi04LjQtNS44LTE5LTExLjQtMjMuMi0xMi4yLTQuNi0xLjItMTYzLjItMS44LTM3NC44LTEuOC0yOTMgMC0zNjguNi42LTM3NS4yIDIuNnptMTkwIDE0NS42YzUuNCA3LjYgNCAxNy40LTQuOCAzMS42LTkuOCAxNi0xMC44IDI3LjQtMyAzNSAyLjYgMi44IDYuNCA1IDguNCA1czM3LjguNCA3OS42LjZjNjggLjQgNzYuNi44IDgyLjQgMy44IDkuMiA1IDEyLjYgMTEgMTIuNiAyMiAwIDctMS4yIDEwLjgtNC44IDE1bC00LjggNS40LTM4IC4yYy01My44IDAtNTMuOCAwLTU1LjQgNTEuMi0uNiAxOC0xLjYgNDIuOC0yLjIgNTUtMS4yIDIyLjguNiAzMS42IDcuNiAzNi4yIDEuNC44IDIyLjIgMiA0NiAyLjZsNDMuMiAxIDguOCA2YzE1LjQgMTAuOCAxNy44IDI5LjIgNSAzNy01LjggMy42LTEwLjIgNC01MS44IDQtMzEgMC00NyAuOC01MC42IDIuNC03IDMuMi0xNC4yIDE3LjYtMTcuMiAzNC40LTMuMiAxNi42LTEgMjEuOCA5LjYgMjUuMiAxMy40IDQuMiAyMS44IDExLjIgNDkgNDEuNCAzNSAzOC44IDM2LjYgNDEgNDEuOCA1OC44IDcgMjMuOCAyLjIgNDEuOC0xMS40IDQxLjgtNy42IDAtMTItMy0yMS0xNC42LTEzLjgtMTcuNC01NC40LTY1LjgtNjItNzMuOC0xNS4yLTE2LTI5LjQtNS44LTM4LjggMjcuNC0xLjggNi42LTguOCAyMy4yLTE1LjYgMzctMTAuOCAyMi0xNCAyNi44LTI3LjQgMzkuNi0xOS42IDE5LjItMjYuNCAyMy01My42IDI5LjYtMjcuMiA2LjQtMzcgNS42LTM4LTMuNi0xLTguNCA0LjQtMTYuNCAyMC0yOSAxNi0xMyAzNi44LTM2LjYgNDUuMi01MS40IDMtNS4yIDguMi0xMy44IDExLjYtMTkgMy40LTUgMTEuOC0yMC40IDE4LjYtMzQuMiAxMC0yMCAxMy42LTI5LjQgMTcuMi00NyAyLjYtMTIuMiA2LjItMjUuNCA3LjgtMjkuNCA0LTkuNCA0LTIxLjQuMi0yNy01LjItNy40LTE2LTguOC02Mi42LTguNC01MC40LjQtNTUuMi0uOC01Ny42LTEzLjItMS44LTEwLjQgNS44LTI0LjQgMTYuMi0yOS44IDcuNC0zLjggMTEuOC00LjIgNTYuMi00LjhsNDguNC0uOCA0LjYtNWM0LjgtNSA0LjgtNSA1LTYxLjYgMC0zNS4yLS44LTU5LjItMi02My4yLTMuOC0xMS4yLTExLTE0LjgtMzAuMi0xNC44cy0yMS40IDEuNC0zMS4yIDE4LjJjLTguMiAxNC40LTIwLjYgMjguOC0zMy4yIDM4LjgtMTMuMiAxMC40LTIxLjYgMTMtMjggOS04LjQtNS42LTUuMi0yMy4yIDguMi00My4yIDQtNi40IDkuMi0xOC42IDEyLjItMjkuNiAzLTEwLjIgNy40LTIzLjIgMTAtMjkgMi40LTUuNiA2LTE2LjggOC0yNC42IDUuNi0yMy42IDI0LTUwLjggMzkuNC01OC40IDExLjItNS40IDE4LjYtNS40IDIyLjQuMnptNDUyIDY4LjJjMTEuOCA3LjggMTEuNC0uOCAxMC44IDIxNi0uNiAxODEtLjggMTk4LjgtNCAyMDMtNy42IDEwLjgtOS44IDExLjQtNTMuNiAxMi40bC00MSAxLTE0IDcuOGMtNy42IDQuMi0yMS4yIDEzLTI5LjggMTkuNC0yNS44IDE5LjItMzUgMTkuOC00My40IDMuMi0xMS44LTIzLjItMjMuNi0zMy4yLTM5LjQtMzMuNC04LjggMC0xMy42LTIuOC0xNy4yLTkuOC0yLjYtNC44LTMtMzMuOC0yLjYtMjA4LjguNC0xOTkuOC40LTIwMyA0LjQtMjA3LjQgMi4yLTIuNCA1LjgtNS4yIDgtNi4yIDIuMi0uOCA1MS44LTEuNCAxMTAtMS4yIDk5IC40IDEwNi42LjYgMTExLjggNHoiLz48cGF0aCBkPSJNNjA2LjggMzM3LjRjLTIuNC40LTYuNCAzLTkgNS44bC00LjggNS4yLS42IDE1Ni40LS40IDE1Ni40IDYuNCA5LjRjMy42IDUuMiA5LjggMTUuMiAxMy42IDIxLjggOCAxNC4yIDE2LjggMjAuNiAyNS42IDE4LjYgMy4yLS42IDEzLjgtNyAyMy42LTE0LjIgMjMtMTcgMjcuOC0xOSA1MC4yLTIwLjIgMTYuNC0xIDE5LjItMS44IDIzLjYtNi4yIDIuOC0yLjggNS02LjQgNS4yLTguMlY1MDUuNmMwLTExNi0uNi0xNTQuNC0yLjYtMTU4LjYtNC44LTEwLjQtOC40LTExLTcwLTEwLjgtMzEuMi4yLTU4LjYuOC02MC44IDEuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-bilibili {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguOCA3Ny44Yy03LjggMi0zMiAxNy44LTM4LjggMjUuNi05LjYgMTAuNi0xOC40IDI1LTIxLjIgMzQtNC4yIDE0LjItNC4yIDcyMy42IDAgNzMzLjYgOC40IDIwLjIgMjkuNCA0MS42IDUzLjIgNTQuMiA2LjggMy42IDE4LjggMy44IDM3MCAzLjhoMzYzbDktNC4yYzE0LTYuOCAzMS42LTIyLjQgNDIuNi0zOCA5LjQtMTMuOCAxMC0xNS4yIDExLjYtMzIuNiAxLjItMTAuNCAxLjYtMTY2LjggMS40LTM2NS42LS42LTMxNy44LS44LTM0OC4yLTMuOC0zNTQuNi05LjItMTkuMi0yMC44LTMzLTM4LjYtNDVsLTE3LjYtMTItMzYyLjQtLjRjLTE5OS4yIDAtMzY1IC40LTM2OC40IDEuMnpNMzcxLjIgMjUxYzQuMiAxLjYgMjIuNiAxOC4yIDQ0LjYgMzkuOCAyOS44IDI5LjIgMzkgMzcuMiA0NS40IDM5IDEwLjYgMyA3My4yIDIuOCA4My4yLS4yIDYtMS44IDE1LjgtMTAuNCA0My40LTM3LjggMTkuOC0xOS42IDM5LjQtMzcuNCA0NC0zOS42IDE1LjItNy44IDMxLjYtNCA0MSA5LjQgMTAuNCAxNS4yIDguOCAyOC02IDQ0LjYtMTUgMTYuOC0xMSAyNC40IDE0LjIgMjYuOCAxOC44IDEuNiAyNS4yIDMuOCA0My44IDE0LjggMTkuMiAxMS4yIDI4IDIxIDQwLjYgNDQuOEw3NzUgNDExdjI1MGwtOS44IDE5LjZjLTEwLjQgMjAuNi0yMy44IDM1LjYtNDMgNDcuNi0xOC44IDEyLTE4LjYgMTItMjI2LjIgMTEuNGwtMTg5LS42LTExLjgtNC44Yy02LjQtMi42LTE4LjYtMTAuMi0yNi44LTE3LTE2LTEyLjgtMjUuNi0yNi40LTM1LTQ5LjItNC40LTExLTQuNC0xMS40LTQuNC0xMzIuMlY0MTQuNmwxMC40LTIxYzguNC0xNi44IDEzLTIzLjQgMjIuNi0zMi4yIDE3LjItMTYgMzkuMi0yNi40IDU5LjItMjguNCAyNy4yLTIuNCAzMS4yLTkuMiAxNS44LTI3LjItNS01LjgtOS42LTEzLjQtMTAuMi0xNy4yLTUuMi0yNy40IDE5LjQtNDguMiA0NC40LTM3LjZ6Ii8+PHBhdGggZD0iTTMzMC4yIDQwMC40Yy05IDEuNi0xNSA1LjQtMjMgMTUtMTEuNCAxMy40LTExLjIgMTItMTEuMiAxMjAuNnMtLjIgMTA1LjYgMTEuMiAxMjIuNEMzMTggNjczLjggMzA3IDY3MyA0OTIgNjczLjZjOTAuOC40IDE3MC42IDAgMTc3LjQtLjYgMTUuNi0xLjYgMjMuNi02LjggMzIuMi0yMWw2LjQtMTAuOFY1MzcuOGMwLTY4LS44LTEwNS40LTIuMi0xMDkuMi0zLTgtMTUuMi0yMi4yLTIyLjItMjUuOC01LjItMi42LTI2LjYtMy4yLTE3NS42LTMuNC05My40LS4yLTE3My40LjItMTc3LjggMXptNzguNCA3MC40YzkuNiA0IDIyLjggMTcuOCAyNS4yIDI2LjYgMi44IDkuOCAyLjggMzMuNCAwIDQzLjItMi40IDguNi0xMS44IDIwLjItMjAgMjQuNi04IDQtMjMuNiAzLjYtMzEtMS0zLjYtMi4yLTguNC04LTExLTEzLjYtNC4yLTguNC00LjgtMTIuNC00LjgtMzEuOCAwLTIxIC4yLTIyLjYgNi0zMS44IDQtNi40IDktMTEuMiAxNC44LTE0LjQgMTAuMi01LjQgMTIuMi01LjYgMjAuOC0xLjh6bTIwNiAwYzIwIDguMiAyOS4yIDM2LjQgMjIuMiA2Ny40LTIuOCAxMi00LjggMTYuMi0xMC44IDIyLjItNyA3LTguNCA3LjYtMTguOCA3LjYtMTkgMC0zMC42LTkuMi0zNi40LTI5LjItMy42LTEyLjQtMi40LTM3LjggMi4yLTQ2LjggNS05LjYgMjQtMjQgMzEuNi0yNCAyIDAgNi40IDEuMiAxMCAyLjh6Ii8+PC9zdmc+);
-    }
-    
-    
-</style>
-
-        
-        <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-image: url(/img/bg.png);
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-
-
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
-    
-    
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Analytics -->
-    
-
-    <!-- Custom Head -->
-    
 </head>
 
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">DeiMo&#39;s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
 
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
-
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.png)">
-        <p class="index-top-block-slogan"><a href="#">
-        
-            
-                剑血封喉，玩事卜攻
-            
-        
-        </a></p>
-    </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/deimo.png" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>DeiMo</strong>
-        </div>
-    </div>
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header logo">
+  <h1>DeiMo&#39;s blog<span class="blink-fast">∎</span></h1>
 </div>
 
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-    <!-- Google -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
-            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-
-            <input type="hidden" name="sitesearch" value="https://deimo.github.io">
-        </form>
-    </div>
-
-
-
-
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#" target="_blank">
-            <img src="/img/logo.png" alt="logo" />
-        </a>
-    </div>
-
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>DeiMo&#39;s blog</strong>
-        </div>
-        <div class="section-spacer"></div>
-
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-                <a class="index_share-link" href="/me" title="About">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        About
-                    </li>
-                </a>
-            
-        </ul>
-
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
-
-            
-
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=DeiMo&#39;s blog&url=https://deimo.github.io/&pic=&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到微博
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=DeiMo&#39;s blog&url=https://deimo.github.io/&via=DeiMo" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Twitter
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://deimo.github.io/index.html" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Facebook
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://plus.google.com/share?url=https://deimo.github.io/" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Google+
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://deimo.github.io/&title=DeiMo&#39;s blog" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 LinkedIn
-                    </li>
-                </a>
-            
-
-            
-                <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=DeiMo&#39;s blog&title=DeiMo&#39;s blog&summary=&pics=https://deimo.github.io/img/favicon.png&url=https://deimo.github.io/" target="_blank">
-                    <li class="mdl-menu__item">
-                        分享到 QQ
-                    </li>
-                </a>
-            
-
-            
-                <a class="post_share-link" href="https://telegram.me/share/url?url=https://deimo.github.io/&text=DeiMo&#39;s blog" target="_blank">
-                    <li class="mdl-menu__item">
-                        分享到 Telegram
-                    </li>
-                </a>
-            
-        </ul>
-    </div>
-</div>
-
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/29/travis-ci车技要点/">travis-ci车技要点</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言今天学习并使用...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/29/travis-ci车技要点/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>3月 29, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/Travis-CI-持续集成/">Travis.CI 持续集成</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/07/怎样使用hexo生成自己的githup主页/">怎样使用Hexo生成自己的github主页</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            欢迎使用Hexo! Th...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/07/怎样使用hexo生成自己的githup主页/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>3月 07, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/Hexo/">Hexo</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/07/Android开发从小白到入门再到放弃/">Android开发从小白到入门再到放弃</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/07/Android开发从小白到入门再到放弃/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>3月 07, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/个人随笔/">个人随笔</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/02/12/RabbitMQ基础（一）/">RabbitMQ基础（一）</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/02/12/RabbitMQ基础（一）/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>2月 12, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/RabbitMQ/">RabbitMQ</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/20/微信小程序踩坑记/">微信小程序踩坑记</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            曾有一段时间，一个叫”包你说”的小程序风靡微信平台，据产品大佬们的调查分析，日流水近百万，每日纯利润达十万~如此可观的收益，公司自然是想着要”截流”...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/20/微信小程序踩坑记/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>11月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/微信小程序/">微信小程序</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/">mysql中GROUP_CONCAT的长度问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mysql/">mysql</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/12/mysql_delete_problem/">mysql非主键删除记录</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这几天在使用mysql过程中发现了这样一个有趣问题：如果在执行delete操作时，where子句不是直接指定条件，mysql就会报错，内容如下：
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/12/mysql_delete_problem/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 12, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/mysql/">mysql</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/05/python多线程技术-二/">python多线程技术(二)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            在《python多线程技术(一)》篇当中，曾粗略介绍了多线程技术及运行状态，及python对于多线程的支持和简单实用，还有印象的朋友一定还记得pyt...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/05/python多线程技术-二/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>9月 05, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/python-多线程/">python 多线程</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/28/python多线程技术(一)/">python多线程技术(一)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            最近一直在学习python的当中多线程技术，感觉使用起来的确比java要方便多～正好乘这个机会，当作是一个记录和总结了
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/28/python多线程技术(一)/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/deimo.png" width="44px" height="44px" alt="DeiMo's avatar">
-            </div>
-            <div>
-                <strong>DeiMo</strong>
-                <span>8月 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/python-多线程/">python 多线程</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/deimo.png" alt="DeiMo's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        jadger@163.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="http://mail.163.com" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a>
-            </ul>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/RabbitMQ/">RabbitMQ<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Travis-CI-持续集成/">Travis.CI 持续集成<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql/">mysql<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/python-多线程/">python 多线程<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人随笔/">个人随笔<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/微信小程序/">微信小程序<span class="sidebar_archives-count">1</span></a>
-            </ul>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Pages  -->
-    
-        <li>
-            <a href="/me" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Article Number  -->
-    
-        <li>
-            <a href="/archives">
-                文章总数
-                <span class="sidebar-badge">9</span>
-            </a>
-        </li>
-        
-    
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart blink-slow"></i>
+      aGVsbG8gd29ybGQ=
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2018/03/29/travis-ci车技要点/" >travis-ci车技要点</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2018-03-29  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>今天学习并使用了Travis.CI，遇到了不少问题，所幸都一一得到了解决，为了让自己印象深刻，决心写个blog，既可当成是一个问题记录，也可以看作是一个有关travis.ci的教程</p>
+<h4 id="什么是CI"><a href="#什么是CI" class="headerlink" title="什么是CI"></a>什么是CI</h4><p>CI，英文全称：Continuous Integration，即持续集成。那么什么又是持续集成？</p>
+<p>持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期以后，再将新代码”集成”到主干。</p>
+<p>持续集成的好处在于，每次代码的小幅变更，就能看到运行结果，从而不断累积小的变更，而不是在开发周期结束时，一下子合并一大块代码。</p>
+<p>本文要介绍的就是大名鼎鼎的Travis CI</p>
+<h4 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h4><p>Travis CI提供的就是一个持续集成服务，它在开源社区（github）上非常流行，想必你在逛github时会经常看到这样的徽章</p>
+<p><a href="https://travis-ci.org/michaelliao/openweixin" target="_blank" rel="external"><img src="https://travis-ci.org/michaelliao/openweixin.svg?branch=master" alt="Build Status"></a></p>
+<p>是的，这就是使用Travis.CI的标志啦，有木有觉得很有逼格呢~</p>
+<h4 id="Travis-CI的特点"><a href="#Travis-CI的特点" class="headerlink" title="Travis CI的特点"></a>Travis CI的特点</h4><p>简单易学（学会了之后就是这种感觉呗😏）</p>
+<p>高端大气上档次😎</p>
+<p>免费！（Travis CI对github上公开的仓库完全免费，对于私有仓库则会收取一定费用，如果你已经付费购买了github的私有仓库，那么就不必再额外支付Travis CI的费用）</p>
+<h4 id="Travis-CI的使用条件"><a href="#Travis-CI的使用条件" class="headerlink" title="Travis CI的使用条件"></a>Travis CI的使用条件</h4><p>前面有提到过…Travis CI在开源社区中十分的流行…事实上…Travis CI也只能结合Github去使用</p>
+<p>对于免费版Travis CI，它的地址在这里 <a href="https://travis-ci.org/" target="_blank" rel="external">travis CI 免费版</a>，对于付费版Travis CI，它的地址如下<a href="https://travis-ci.com/" target="_blank" rel="external">travis CI 付费版</a></p>
+<p>对Travis CI的使用条件总结如下</p>
+<ul>
+<li>拥有 GitHub 帐号</li>
+<li>该帐号下面有一个项目</li>
+<li>该项目里面有可运行的代码</li>
+<li>该项目还包含构建或测试脚本</li>
 </ul>
+<p>无论是免费版还是付费版，它们的使用方法都是相同的</p>
+<h4 id="Travis-CI的使用"><a href="#Travis-CI的使用" class="headerlink" title="Travis CI的使用"></a>Travis CI的使用</h4><ol>
+<li>使用github账号登录Travis.CI</li>
+<li>选择需要集成CI服务的仓库并激活，如下图所示</li>
+</ol>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121902.png" alt="选择并激活仓库"></p>
+<ol>
+<li><p>在你项目的根目录下新建一个.travis.yml的文件，该文件指定了travis CI的行为且必须保存在github的仓库中</p>
+<p>一旦仓库中有了新的commit，Travis就会去找这个文件，并执行其中的相关命令，该文件使用<a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="external">YAML</a>文件格式进行描述，不得不多提一句，一旦你的YAML文件格式错误，Travis将无法识别并自动build，报错如下</p>
+<p><img src="/img/CI/parse_error.png" alt="解析错误"></p>
+<p>这里有一个在线工具可用于检验你<strong>.travis.yml</strong>文件的格式是否正确。<a href="http://www.yamllint.com/" target="_blank" rel="external">在线检测YAML文件格式</a></p>
+</li>
+<li><p>编写你的.travis.yml文件</p>
+<p>有关该文件的内容，Travis 提供了很多功能，详情请移步<a href="https://docs.travis-ci.com/" target="_blank" rel="external">官网</a></p>
+<p>下面就一些简单的内容做一下解释，假设有.travis.yml文件内容如下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> <span class="string">python</span></div><div class="line"><span class="attr">sudo:</span> <span class="string">required</span></div><div class="line"><span class="attr">script:</span> <span class="literal">true</span></div><div class="line"><span class="attr">before_install:</span> <span class="string">sudo</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">foo</span></div><div class="line"><span class="attr">script:</span> <span class="string">py.test</span></div></pre></td></tr></table></figure>
+<p>上面代码中，设置了四个字段：运行环境是 <code>Python</code>，需要<code>sudo</code>权限，在安装依赖之前需要安装<code>foo</code>模块，然后执行脚本<code>py.test</code></p>
+<p>Travis的运行流程很简单，任何项目都会经过两个阶段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">install 阶段：	安装依赖</div><div class="line">script 阶段：	运行脚本</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Travis.CI登录服务器实现服务的持续集成</p>
+<p>想要实现此功能，需要一定的前提：</p>
+<ul>
+<li>ssh key</li>
+<li>ruby 2.0 + </li>
+<li>基于某些原因下的科学上网</li>
+</ul>
+<p>在具备上述条件后就可以开始我们的Travis CI与服务器的交互集成了</p>
+<p>首先需要安装一个gem包：travis</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install travis</div></pre></td></tr></table></figure>
+<p>安装完成后，切换到你仓库根目录，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">travis login</div></pre></td></tr></table></figure>
+<p>根据提示，输入你刚刚用于travis-ci网站登录的Github账户名及密码。</p>
+<p>做好基本的项目配置之后，我们需要配置持续部署的自动运行脚本。</p>
+<p>首先使用<code>travis encrypt-file</code>命令对你刚刚在开发环境生成的密匙进行加密（这样一来可以放心地将密匙保存在公开的开源项目当中）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 此处的--add参数表示自动添加脚本到.travis.yml文件中</div><div class="line">travis encrypt-file ~/.ssh/id_rsa --add</div></pre></td></tr></table></figure>
+<p>之后再打开.travis.yml文件，会发现多了一个<code>before_install</code>的钩子</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">before_install:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="bullet">-K</span> <span class="string">$encrypted_830d3b21a25d_key</span> <span class="bullet">-iv</span> <span class="string">$encrypted_830d3b21a25d_iv</span></div><div class="line"><span class="bullet">    -</span><span class="string">in</span> <span class="string">id_rsa.enc</span> <span class="bullet">-out</span> <span class="string">~\/.ssh/id_rsa</span> <span class="bullet">-d</span></div></pre></td></tr></table></figure>
+<p>Travis 一共提供了7个钩子，总结如下</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>钩子名称</th>
+<th>阶段解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before_install</td>
+<td>install 阶段之前执行</td>
+</tr>
+<tr>
+<td>before_script</td>
+<td>script 阶段之前执行</td>
+</tr>
+<tr>
+<td>after_failure</td>
+<td>script 阶段失败时执行</td>
+</tr>
+<tr>
+<td>after_success</td>
+<td>script 阶段成功时执行</td>
+</tr>
+<tr>
+<td>before_deploy</td>
+<td>deploy 步骤之前执行</td>
+</tr>
+<tr>
+<td>after_deploy</td>
+<td>deploy 步骤之后执行</td>
+</tr>
+<tr>
+<td>after_script</td>
+<td>script 阶段之后执行</td>
+</tr>
+</tbody>
+</table>
+<p>   ​</p>
+<p>   注意！！！😡😈默认生成的命令可能会在<code>/</code>前面带转义符<code>\</code>，我们不需要这些转义符，手动删掉所有的转义符，否则可能在后面引发莫名的错误 like this</p>
+<p>   <img src="/img/CI/auth_error.jpeg" alt="转义错误"></p>
+<p>   ​</p>
+<p>   在完成上述内容后，我们还需要正确地设置权限和认证，这是为了避免…出现诸如..需要添加ssh key…确认提示…然而travis CI并没有一个交互式环境…错误如下</p>
+<p>   <img src="/img/CI/key_error.jpg" alt="权限错误"></p>
+<p>   ​</p>
+<p>   在全部的准备工作都完成后，就可以添加部署脚本了，这里以我自己的Python项目为例，给出我的<code>.travis.yml</code>文件内容</p>
+   <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">-</span> <span class="string">ls</span></div><div class="line"><span class="attr">after_success:</span></div><div class="line"><span class="bullet">-</span> <span class="string">ssh</span> <span class="string">ubuntu@139.199.7.86</span> <span class="string">'cd /www/ynpublaw &amp;&amp; git pull &amp;&amp; env/bin/pip install -r requirements.txt'</span></div><div class="line"><span class="bullet">-</span> <span class="string">ci.sh</span></div><div class="line"></div><div class="line"><span class="attr">before_install:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="bullet">-K</span> <span class="string">$encrypted_fed0778d0d20_key</span> <span class="bullet">-iv</span> <span class="string">$encrypted_fed0778d0d20_iv</span></div><div class="line"><span class="bullet">    -</span><span class="string">in</span> <span class="string">id_rsa.enc</span> <span class="bullet">-out</span> <span class="string">~/.ssh/id_rsa</span> <span class="bullet">-d</span></div><div class="line"><span class="bullet">  -</span> <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></div><div class="line"><span class="bullet">  -</span> <span class="string">echo</span> <span class="bullet">-e</span> <span class="string">"Host 139.199.7.86\n\tStrictHostKeyChecking no\n"</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/config</span></div><div class="line"></div><div class="line"><span class="comment"># safelist</span></div><div class="line"><span class="attr">branches:</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">dev</span></div></pre></td></tr></table></figure>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>本文参考如下：<br><a href="https://zhuanlan.zhihu.com/p/25066056" target="_blank" rel="external">《一点都不高大上，手把手教你使用Travis CI实现持续部署》</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html" target="_blank" rel="external">《持续集成服务 Travis CI 教程》</a></p>
 
-
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
-
-
-<!-- Theme Material -->
-
-
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
-    </div>
-
-    <!-- Sidebar Image -->
-    
-    <span id="footer-image">
-        <a href="https://www.upyun.com/" target="_blank" title="upyun_logo">
-            <img src="/img/upyun_logo.svg" alt="upyun_logo"><!--
-     --></a>
-    </span>
-
-
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
+	
+	</div>
+  <a type="button" href="/2018/03/29/travis-ci车技要点/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
-                    
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2018/03/07/怎样使用hexo生成自己的githup主页/" >怎样使用Hexo生成自己的github主页</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2018-03-07  </div>
+		</div>
+	</div>
+	
 
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
 
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>欢迎使用<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>. 好吧，我还是保留原文这段描述吧～接下来就是干货了，需要注意的事本教程环境是在Mac os下完成</p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><blockquote>
+<p>安装有node.js  和 npm～（你去node官网下载时，肯定都会带有npm吧）</p>
+<p>安装有Git</p>
+<p>一个github账号</p>
+</blockquote>
+<p>上述工具的安装和使用我不是本教程的重点，如果你对于它们都很陌生，那本教程就不大适合于你了🙁</p>
+<h2 id="生成本地Hexo站点"><a href="#生成本地Hexo站点" class="headerlink" title="生成本地Hexo站点"></a>生成本地Hexo站点</h2><p>在你安装好了node.js，并且修改了它的镜像源后，就可以真正开始接下来的操作了。（还没修改的赶紧去改改哈，天朝网络原因…我就不解释了）</p>
+<p>1.安装Hexo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>2.生成一个Hexo站点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init [website-name] 名字任意， 这里我就使用的是blog， 完整命令是</div><div class="line">hexo init blog</div></pre></td></tr></table></figure></p>
+<p>你会发现在你的目录下多了这些文件…项目中各文件夹的定义情查阅官网doc，这里选几个重要描述<img src="/img/hexo/tree.png" alt="tree"></p>
+<table>
+<thead>
+<tr>
+<th>目录名或文件名</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>source</td>
+<td style="text-align:center">用于存放你所生成各种原始资源，你如你的帖子</td>
+</tr>
+<tr>
+<td>themes</td>
+<td style="text-align:center">存放你的站点主题及主题配置文件</td>
+</tr>
+<tr>
+<td>_config.yml</td>
+<td style="text-align:center">站点配置文件，部署，安装插件，修改样式时会用</td>
+</tr>
+</tbody>
+</table>
+<p>3.安装Hexo所需依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">首先 cd blog (你之前生成站点名)</div><div class="line">然后执行 npm install</div></pre></td></tr></table></figure></p>
+<p>4.本地预览调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure></p>
+<p>之后你就可以代开浏览器访问<strong>localhost:4000</strong>地址预览博客页面，下面帖上一张图吧(已经很漂亮吧，如果你还不满意，后续会介绍如何修改主题)<img src="/img/hexo/preview.png" alt="preview"></p>
+<h2 id="部署到Githup"><a href="#部署到Githup" class="headerlink" title="部署到Githup"></a>部署到Githup</h2><p>部署到github之前你需要完成以下几个工作</p>
+<p>1.在github上新建一个Repository，仓库名必须为【your_user_name.github.io】写法固定，这样github才会为你提供域名服务</p>
+<p>2.安装hexo与github相关联的package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>3.修改站点配置文件，上文提到过的 <strong>_config.yml</strong>文件(位置在最下面)，格式如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/deimo/deimo.github.io.git(我的)</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>4.生成静态页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate （或hexo g）</div></pre></td></tr></table></figure>
+<p>如果有报错发生，执行下列操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo-renderer-ejs --save</div><div class="line">npm install hexo-renderer-stylus --save</div><div class="line">npm install hexo-renderer-marked --save</div></pre></td></tr></table></figure>
+<p>5.发布到你的github</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>此时也许会让你输入你的github用户名和密码…当然如果你使用ssh key，那应该不会要求你的用户名和密码</p>
+<p>此时就可以在浏览器中访问:<strong><a href="https://deimo.github.io">https://deimo.github.io</a></strong>，如果有内容显示～那么恭喜你👏</p>
+<p>至此～你的github主页就已经搭建好了～让我们庆祝一下🎁</p>
+<h2 id="发布新的博文"><a href="#发布新的博文" class="headerlink" title="发布新的博文"></a>发布新的博文</h2><p>好吧，这里我就偷懒了…我就直接用生成站点时的原文内容好了…</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a><strong>Create</strong> a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>所以每次在你的博文写完后，你的部署操作大致是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>一些其它常用的hexo命令参考，更多请参见Hexo官网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line">hexo help  #查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure>
+<h2 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h2><p>1.关于主题<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">themes</a> 当然你也可以知乎上搜索更多关于主题的信息</p>
+<p>2.Hexo官网<a href="https://hexo.io/" target="_blank" rel="external">hexo</a></p>
+<p>3.🙏感谢这位大佬的blog，才让我有了此教程,<a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2" target="_blank" rel="external">传送门</a></p>
 
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
+	
+	</div>
+  <a type="button" href="/2018/03/07/怎样使用hexo生成自己的githup主页/#more" class="btn btn-default more">阅读此文</a>
+</div>
 
-    <!-- Weibo -->
-    
-        <a href="http://weibo.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
-                <span class="visuallyhidden">Weibo</span>
-            </button><!--
-     --></a>
-    
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2018/03/07/Android开发从小白到入门再到放弃/" >Android开发从小白到入门再到放弃</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2018-03-07  </div>
+		</div>
+	</div>
+	
 
-    <!-- Instagram -->
-    
 
-    <!-- Tumblr -->
-    
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="Android开发从小白到入门再到放弃"><a href="#Android开发从小白到入门再到放弃" class="headerlink" title="Android开发从小白到入门再到放弃"></a>Android开发从小白到入门再到放弃</h2><h4 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h4><p>哪里有什么专业~对于大学专业~我一直以来都比较确信：学啥儿专业都一样，反正到时毕业都找不到工作~ 😬<br>钱伟长大佬曾言：“我没有专业，国家的需要就是我的专业”~的确，哪里有什么专业呢？时代缺什么，什么就是我的专业~英雄造时势~可惜不可能人人竟是英雄…只有不断跟进~方才能够让自己落于不败之地~互联网行业的日新月异~恰恰需要你去不断学习~</p>
+<h4 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h4><p>13年大学入学，是我第一次接触智能手机，不久后才发现原来在手机上就可以实现日常衣食住行需求…于是感慨移动终端的强大…那时就在心里盘算着…要是日后我也能在手机上开发App，那该是一件多么炫酷的事情哇~</p>
+<p>也许你会想身为一名程序员的我接触互联网的时间居然那么晚？是的，没有错，受制于家庭背景和传统教育，甚至于我上大学时的报考专业也是传统化工类（无机非金属材料工程）。再后来…随着自己对所学专业的进一步了解…以及对自己所在大学的教育的失望（虽然还拿着微薄的学院奖学金~）…外加两位任课老师的言论~则是令我下定决心~转行IT！~在这里吐槽一下自己对所谓“学生组织”的认识：尽是一些无所事事、浪得虚名、沽名钓誉的无耻之徒~鲜有精英~所以大学四年我没有加入任何一个校园组织~告诉自己：只有无名之人才会去追逐名利~</p>
+<p>至今我还记得我的大学物理老师说：男生，没事儿就多去学点英语和编程~线性代数的老师也说过：错过了大航海时代，错过了工业革命时代~我们现在正处于互联网时代，多么美好的时代呀~！这个时代，我们赶上了！~</p>
+<p>那时身处大二上…又貌似选修了一门《安卓开发》的课程…是东软的徐铭老师授课~课讲得很好…很吸引人…然而并没有什么卵用…老师也直说…上了我得课，你肯定做不了什么东西…但能评价一个项目的好坏…我只记得那时啥都不懂得我…看着他在命令行使用mysql帅气的样子~在myeclipse上打开…tomcat，演示钓鱼网站原理时的兴奋与懵逼…虽然…那些都只是javaWeb里…基础中的渣渣…但依旧深深吸引了我…于是我果断回图书馆翻阅下android开发相关书籍…嗯，不大懂…只是感觉自己不明就里地照着上面写就能学会了，</p>
+<p>于是…我下了一本电子书（书名貌似是《Android从入门到精通》来着？）…上课看，下课看…回宿舍练…没有语言基础的我…只在vc6.0上写过几行c的我…光是开发环境…就折腾了好久…不过也有好处…能让我对android开发环境的搭建遇到的各种问题都能有非常快的解决方案…也熟悉了SDK下各个文件包的意义…那个时候android studio还不像现在这么普遍…操着eclipse的我…也只是感觉这破玩意儿也就比记事本好用点…完全不能体会到它的强大…对它的使用…仅限于记事本水平…当然啦，书上所有代码…全是硬背…背下来…</p>
+<p>照着电子书上的代码…敲了一段时间后…觉得一边看电子书，一边操作IDE很不方便…于是上当当上买了自己的第一本android开发书籍——李刚的《疯狂android讲义》。一本全面…但又不知道去总结经验的书…书上大部分内容都是细枝末节的东西…书上的示例代码给人感觉也是不够健壮，不够有示范性…不过作者经历到是挺励志…对我还算是有激励作用…让我算是坚持了下来…现在想来，如果当时自己的入门书籍，选得是郭琳大神的《第一行代码》话，想必我的android开发之路~会顺畅得多…那时电脑配置不佳（因为我是AMD处理器，无法使用intel的硬件加速技术…后来又听说了tensorflow对AMD也不尽友好…）不能使用google自带的x86镜像模拟器…那个ARM和MIPS 架构的模拟器…速度感人~无奈只能使用真机调试…（后来使用了genymotion）即使是eclipse…也觉得速度…不合时宜…</p>
+<p>有了《疯狂android讲义》后…我便开始…研究它…没什么技巧…一点点看，一点点敲…进展很慢，很慢…因为代码全靠背…心里觉得恐惧…偌大一本书~我啥时候能读完…一天6小时的学习时间…全拿来处理代码的小瑕疵了…</p>
+<p>我觉得这样的学习效率，肯定是有问题的…于是在贴吧…知乎…寻求经验…这才得知，要学android，必先修java…我一开始甚至对此甚是怀疑…觉得没有java语言基础…硬着头皮来…肯定也能行…~后来自然是发现自己…简直愚不可及…~这里也提醒下广大想学习android的童鞋们…想学android，请先修java…    </p>
+<p>可惜当我意识到这点的时候…大二上…已经过了大半…于是狠补java基础，我也不对此有所隐瞒，我从某位大佬那里拿到了毕向东的JAVA SE视频。说真的，他讲的实在太好太好了！！！（哪怕是到现在…我也会偶尔回头再去看看java语言）而我也确实很用功很用心的看了他的完整视频，当真是收获满满，所获甚丰，应该说就java SE的内容而言，我怕是很难会忘记了，时至今日我也觉得自己的java SE基础是足够足够扎实的！曾经有幸面试过几位java程序员…面向对象解释的一塌糊涂，<strong>private</strong> ， <strong>public</strong>权限模糊不清…甚至可以毫不掩饰夸张地说，从毕向东的视频里所学习到的面向对象思想，再一次的开发了我的智力，改变了我的思维习惯！港真…语言基础真的很重要…我在大连的一家公司实习过一段时间的Android…曾有同事与我探讨问题…我发现那些问题大部分都是由于其对java语言基础及其特点不熟悉造成的…而不是由android SDK带来</p>
+<p>有了语言基础，再学起android来~果然事半功倍，原来几个小时也学不明白的东西~现在几十分钟下来~豁然开朗：原来是这么简单的东西~ 就这样…对于android我终于算是入门了~之后在校内我积极地和老师、同学（研究生）参与各种比赛，做一些学生项目~也在大连市有过近两个月的Android实习经历，可以说那个时候的我对于Android程序设计基础该是比较熟悉了~后来的后来我开始前往进阶之路：各种框架的学习与使用~最新系统AP的I特性~设计模式…view适配…动画…RPC…然而~也不知为何…我未能坚持下去…也许是进阶之路过于漫长…也许是自己过于“花心”~我最终抛弃了android客户端，选择了Python后端~</p>
+<p>是的，从我开始接触互联网到成为一名合格程序员，这期间全是靠着自己的胡乱摸索和摸爬滚打…直至今日~</p>
+<p>欲知后事如何~请看下篇连载~  😈</p>
+<h4 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a>结尾：</h4><p>如果你喜欢的文章，扫描以下二维码，加我微信，给我小额赞赏</p>
+<p><img src="/img/life/qrcode.jpeg" alt="二维码"></p>
 
-    <!-- Github -->
-    
-        <a href="https://github.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
+	
+	</div>
+  <a type="button" href="/2018/03/07/Android开发从小白到入门再到放弃/#more" class="btn btn-default more">阅读此文</a>
+</div>
 
-    <!-- LinkedIn -->
-    
-        <a href="https://www.linkedin.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-linkedin">
-                <span class="visuallyhidden">LinkedIn</span>
-            </button><!--
-     --></a>
-    
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2018/02/12/RabbitMQ基础（一）/" >RabbitMQ基础（一）</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2018-02-12  </div>
+		</div>
+	</div>
+	
 
-    <!-- Zhihu -->
-    
-        <a href="https://www.zhihu.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
-                <span class="visuallyhidden">Zhihu</span>
-            </button><!--
-     --></a>
-    
 
-    <!-- Bilibili -->
-    
-        <a href="https://www.bilibili.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
-                <span class="visuallyhidden">Bilibili</span>
-            </button><!--
-     --></a>
-    
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="RabbitMQ基础（一）"><a href="#RabbitMQ基础（一）" class="headerlink" title="RabbitMQ基础（一）"></a>RabbitMQ基础（一）</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><h6 id="1-什么是消息队列"><a href="#1-什么是消息队列" class="headerlink" title="1. 什么是消息队列"></a>1. 什么是消息队列</h6><p>​    消息（Message）是指在应用间传送的数据。消息可以非常简单，比如只包含文本字符串，也可以更复杂，可能包含嵌入对象。</p>
+<p>消息队列（Message Queue）是一种应用间的通信方式，消息发送后可以立即返回，由消息系统来确保消息的可靠传递。消息发布者只管把消息发布到 MQ 中而不用管谁来取，消息使用者只管从 MQ 中取消息而不管是谁发布的。这样发布者和使用者都不用知道对方的存在</p>
+<h6 id="2-为什么需要使用消息队列"><a href="#2-为什么需要使用消息队列" class="headerlink" title="2. 为什么需要使用消息队列"></a>2. 为什么需要使用消息队列</h6><p>​    以常见的订单系统为例，用户点击【下单】按钮之后的业务逻辑可能包括：扣减库存、生成相应单据、发红包、发短信通知。在业务发展初期这些逻辑可能放在一起同步执行，随着业务的发展订单量增长，需要提升系统服务的性能，这时可以将一些不需要立即生效的操作拆分出来异步执行，比如发放红包、发短信通知等。这种场景下就可以用 MQ ，在下单的主流程（比如扣减库存、生成相应单据）完成之后发送一条消息到 MQ 让主流程快速完结，而由另外的单独线程拉取MQ的消息（或者由 MQ 推送消息），当发现 MQ 中有发红包或发短信之类的消息时，执行相应的业务逻辑。</p>
+<p>以上是用于业务解耦的情况，其它常见场景包括最终一致性、广播、错峰流控等等。</p>
+<h6 id="3-AMQP协议简介"><a href="#3-AMQP协议简介" class="headerlink" title="3. AMQP协议简介"></a>3. AMQP协议简介</h6><p>​    AMQP ：Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。</p>
+<p>​    AMQP从一开始就设计成为开放标准，以解决众多消息队列需求的拓扑结构问题。凭借开放，任何人都可以执行这一标准，针对标准编码的任何人都可以和任意AMQP供应商提供的MQ服务器进行交互</p>
+<h6 id="4-RabbitMQ-特点"><a href="#4-RabbitMQ-特点" class="headerlink" title="4. RabbitMQ 特点"></a>4. RabbitMQ 特点</h6><p>​    RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。具体特点包括:</p>
+<ul>
+<li><p>可靠性（Reliability）</p>
+<blockquote>
+<p>RabbitMQ 使用一些机制来保证可靠性，如持久化、传输确认、发布确认。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>灵活的路由（Flexible Routing）</p>
+<blockquote>
+<p>在消息进入队列之前，通过 Exchange 来路由消息的。对于典型的路由功能，RabbitMQ 已经提供了一些内置的 Exchange 来实现。针对更复杂的路由功能，可以将多个 Exchange 绑定在一起，也通过插件机制实现自己的 Exchange 。</p>
+</blockquote>
+</li>
+<li><p>消息集群（Clustering）</p>
+<blockquote>
+<p>队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用。</p>
+</blockquote>
+</li>
+<li><p>多种协议（Multi-protocol）</p>
+<blockquote>
+<p>RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等。</p>
+</blockquote>
+</li>
+<li><p>多语言客户端（Many Clients）</p>
+<blockquote>
+<p>RabbitMQ 几乎支持所有常用语言，比如 Java、.NET、Ruby 等等。</p>
+</blockquote>
+</li>
+<li><p>管理界面（Management UI）</p>
+<blockquote>
+<p>RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息 Broker 的许多方面。</p>
+</blockquote>
+</li>
+<li><p>跟踪机制（Tracing）</p>
+<blockquote>
+<p>如果消息异常，RabbitMQ 提供了消息跟踪机制，使用者可以找出发生了什么。</p>
+</blockquote>
+</li>
+<li><p>插件机制（Plugin System）</p>
+<blockquote>
+<p>RabbitMQ 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>Mac上可以使用brew</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install RabbitMQ</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意在Mac OS 10.12以后，不在允许brew使用Root权限，如果只是单单纯学习使用，可使用官网二进制程序集<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="external">地址</a></p>
+</blockquote>
+<h4 id="RabbitMQ的消息通信模型"><a href="#RabbitMQ的消息通信模型" class="headerlink" title="RabbitMQ的消息通信模型"></a>RabbitMQ的消息通信模型</h4><h6 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h6><p>消息（message）被发布者（publisher）发送给交换机（exchange），交换机常常被比喻成邮局或者邮箱。然后交换机将收到的消息根据路由规则分发给绑定的队列（queue）。最后AMQP代理会将消息投递给订阅了此队列的消费者，或者消费者按照需求自行获取。如下图</p>
+<p><img src="/img/rabbitmq/hello-world.png" alt="rabbitmq消息通信模型"></p>
+<h6 id="RabbitMQ的相关概念介绍"><a href="#RabbitMQ的相关概念介绍" class="headerlink" title="RabbitMQ的相关概念介绍"></a>RabbitMQ的相关概念介绍</h6><ol>
+<li><p>生产者和消费者</p>
+<blockquote>
+<p>生产者：发送消息的程序</p>
+<p>消费者：一个主要等待接收消息的程序</p>
+</blockquote>
+</li>
+<li><p>交换机</p>
+<blockquote>
+<p>交换机是用来发送消息的AMQP实体。交换机常常被比喻成邮局或者邮箱</p>
+</blockquote>
+<p>RabbitMQ具有以下几种交换机类型</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name（交换机类型）</th>
+<th style="text-align:center">Default pre-declared names（预声明的默认名称）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Direct exchange（直连交换机）</td>
+<td style="text-align:center">(Empty string) and amq.direct</td>
+</tr>
+<tr>
+<td style="text-align:center">Fanout exchange（扇型交换机）</td>
+<td style="text-align:center">amq.fanout</td>
+</tr>
+<tr>
+<td style="text-align:center">Topic exchange（主题交换机）</td>
+<td style="text-align:center">amq.topic</td>
+</tr>
+<tr>
+<td style="text-align:center">Headers exchange（头交换机）</td>
+<td style="text-align:center">amq.match (and amq.headers in RabbitMQ)</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p>信道</p>
+<blockquote>
+<p>有些应用需要与AMQP代理建立多个连接。无论怎样，同时开启多个TCP连接都是不合适的，因为这样做会消耗掉过多的系统资源并且使得防火墙的配置更加困难。AMQP 0-9-1提供了通道（channels）来处理多连接，可以把通道理解成共享一个TCP连接的多个轻量化连接。</p>
+<p>在涉及多线程/进程的应用中，为每个线程/进程开启一个通道（channel）是很常见的，并且这些通道不能被线程/进程共享。</p>
+<p>一个特定通道上的通讯与其他通道上的通讯是完全隔离的，因此每个AMQP方法都需要携带一个通道号，这样客户端就可以指定此方法是为哪个通道准备的</p>
+</blockquote>
+</li>
+<li><p>队列</p>
+<blockquote>
+<p>队列如同具名邮箱，消息最终到达队列中并等待消费</p>
+</blockquote>
+</li>
+<li><p>虚拟主机</p>
+<blockquote>
+<p>为了在一个单独的代理上实现多个隔离的环境（用户、用户组、交换机、队列 等），AMQP提供了一个虚拟主机（virtual hosts - vhosts）的概念。这跟Web servers虚拟主机概念非常相似，这为AMQP实体提供了完全隔离的环境。当连接被建立的时候，AMQP客户端来指定使用哪个虚拟主机</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>本文参考列表如下</p>
+<ol>
+<li>《消息队列之 RabbitMQ》<a href="https://www.jianshu.com/p/79ca08116d57" target="_blank" rel="external">简书地址</a></li>
+<li>《RabbitMQ 中文文档》<a href="http://rabbitmq.mr-ping.com/" target="_blank" rel="external">Gitbook地址</a></li>
+</ol>
 
-    <!-- Telegram -->
+	
+	</div>
+  <a type="button" href="/2018/02/12/RabbitMQ基础（一）/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2017/11/20/微信小程序踩坑记/" >微信小程序踩坑记</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-11-20  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>曾有一段时间，一个叫”包你说”的小程序风靡微信平台，据产品大佬们的调查分析，日流水近百万，每日纯利润达十万~如此可观的收益，公司自然是想着要”截流”了~于是乎…这个重任就落到了本菜菜身上…如果你还不知道”包你说”的话…建议你先尝试着体验下，体验后你就发现，所谓的包你说，最大的难点无非就是在那个语音识别上…其它地方一如正常的CRUD…当然还有微信的小程序支付…让我郁闷了一阵</p>
+<h2 id="踩坑一：微信小程序支付"><a href="#踩坑一：微信小程序支付" class="headerlink" title="踩坑一：微信小程序支付"></a>踩坑一：微信小程序支付</h2><p>先说简单的小程序支付吧…如果你对支付类业务比较熟悉，你总是能够发现，无论是原生支付，还是第三方支付…无论哪个平台…其最核心的步骤无外乎两步：<strong><strong>下单</strong></strong>  and  <strong><strong>通知</strong></strong> </p>
+<p>根据不同的支付文档，有时需要客户端访问商户系统，由商户后端下单，成功后返回客户端，有时这是由商户系统生成下单参数，由客户端去请求下单。而微信的小程序支付则是后一种…嗯，这到没什么…不过需要注意的是…微信的小程序支付文档上有个<strong><strong>再签名</strong></strong>过程，同时，一定要注意<strong><strong>字段名</strong></strong>和<strong><strong>字段示例值</strong></strong> ！！！我就是被可恶的微信字段名坑得不浅…当然这也怨我自己粗心大意…其它诸如签名算法并没有什么难度的…贴一张图以示提醒了<img src="/img/wxapp/wxapp_pay1.jpeg" alt="小程序支付流程"> <img src="/img/wxapp/wxapp_pay2.jpeg" alt="小程序支付参数"></p>
+<p>看到了吗…那个字段的示例值…更可恶的是…下单时的文档参数说明使用的是snakeCase，到了这里…全部变成camelCase…完全看心情有木有…没办法…也怨我看文档不仔细吧…</p>
+<h2 id="踩坑二：微信语音识别"><a href="#踩坑二：微信语音识别" class="headerlink" title="踩坑二：微信语音识别"></a>踩坑二：微信语音识别</h2><p>在完成大概所有的CRUD和支付功能后…开始去玩…看起来最高大上的”语音识别”功能…我们最终选取的语音识别平台是百度…原因嘛…因为它免费…不过话又说起来…百度的语音识别接起来…还真挺简单的…直接提供了pip包，非常方便集成在flask框架中，我按照了示例…自己测试了文件上传…又调用百度语音识别api成功后…觉得自己大事已成…万万没想到的是…微信的语音文件格式并不可以被百度语音直接识别…WTF！怎么办…当时考虑使用讯飞…以为它可以转万能的语音格式…官方查阅之…原来不是…那就只有一种办法了…自行转码…于是又去搜索python的音频转码库…然而都没有对微信那种语音文件格式的支持…所以没办法了…到了这里…要么使用C语言…自己编写转码库和程序…让C调用…要么…嗯…使用第三方外部转码程序…好在Python和Unix/Linux对调用第三方应用支持比较好，这点没什么难度…那么话又说回来了…微信的语音文件到底是什么格式呢？百度之…大佬们众说纷坛…不过一个比较可信的主流的观点是<strong><strong>SILK</strong></strong>文件格式…嗯…于是各种搜索…终于让我找到了一款神器：ffmpeg万能解码器，支持丰富cli处理！在研究使用ffmpeg的时候…发现了 一个有趣的词…<strong><strong>Hall of Shame</strong></strong>有兴趣的朋友们可以自己去看看鹅厂的黑历史…然鹅…一番折腾后发现…ffmpeg并没有支持silk音频的解码库…需要自己额外下载…WTF！后来我又百度之…终于…发现了这位大佬,<a href="https://github.com/kn007/silk-v3-decoder" target="_blank" rel="external">传送门</a>，于是我按照文档…发现…居然告诉我这个<img src="/img/wxapp/decoder_fail.jpg" alt="转码错误"></p>
+<p>WTF！不是标准SILK格式，那是什么？！千翻查找…叫我发现了这个…<a href="http://www.iosre.com/t/topic/3199" target="_blank" rel="external">传送门</a>，原来是在文件头信息中多了一个无用的空字节…于是…我在自己的mac中搜索微信接收到的语音文件，发现是.aud.silk结尾…嗯，应该称之为silk变种文件比较合适。于是按照思路…先去掉第一个字符…然后转码…这次果然有效！！！然后再调用百度语音识别，居然…成功了！不过值得一提的是…我在转码时，没有使用那个Shell脚本，而是用到了<a href="https://github.com/Kronopath/SILKCodec" target="_blank" rel="external">这个</a>，这份转码库的用法很简单：download下来后，进入ARM平台，然后make编译出可执行程序…编译过程可能会提示你安装一些编译的工具…（如果你没安装的话）之后就可以使用python去调用这个外部的第三方的程序了。这样就实现了微信的语音文件从上传到转码再到识别的过程，初步完成该核心功能，后续的识别率优化…可以考虑比对拼音…这样就可以避免同音不同字的识别尴尬，在一定程度上…提高识别率。</p>
+<h2 id="踩坑三：微信小程序的通知"><a href="#踩坑三：微信小程序的通知" class="headerlink" title="踩坑三：微信小程序的通知"></a>踩坑三：微信小程序的通知</h2><p>用过摩拜单车小程序的童鞋们肯定都知道，摩拜单车在解锁和开锁后都会向用户发送一条通知。好吧，其实这个通知没什么难度，唯一觉得比较不舒服的是它的参数…嗯，尤其你要注意对于微信的access_token间断刷新…这个使用定时任务+redis就可以很好处理。接下来就是通知的核心参数form_id对于该参数…如果有支付过程的话，这个参数就会好拿很多…如果没有的话…那就会稍稍麻烦…当然我也只是研究使用了…支付情形…剩下的情形留着以后再去考虑吧</p>
+
+	
+	</div>
+  <a type="button" href="/2017/11/20/微信小程序踩坑记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" >mysql中GROUP_CONCAT的长度问题</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-09-20  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是被截取了！！真的是非常令人蛋疼的问题呀，尤其是在类似聚合分组的业务，将数据反馈给客户端时，就更为严重了！多番查找折腾后发现，原来…<br>MYSQL内部对这个是有设置的，默认不设置的长度是1024，可以通过使用<code>show variables like &quot;group_concat_max_len</code>命令来查看该变量值<img src="/img/mysql/group_concat.png" alt="group_concat_max_len"></p>
+<p>想要指定GROUP_CONCAT的长度有两种方法：</p>
+<ol>
+<li><p>修改变量 group_concat_max_len的值</p>
+<ul>
+<li><p>修改session变量，只对该连接客户有效</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> [<span class="keyword">SESSION</span>] group_concat_max_len=<span class="number">102400</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改global变量，对所有连接都生效</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> group_concat_max_len=<span class="number">102400</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>修改配置文件（全局生效）</p>
+</li>
+</ol>
+<p>在mysql启动的配置文件下，进行设置，各平台下配置文件存放的目录不同，配置文件的具体存放位置，不是本文要讨论的内容</p>
+<p>以我的mac os系统为例，我已经将mysql的配置文件写在/etc目录下，只需要在mysqld节点下group_concat_max_len = [size] (size是你定义的大小，上限为4294967295)<img src="/img/mysql/group_concat_len.png" alt="group_concat_len"></p>
+<p>曾经看到过一些文章的说法是将group_concat_max_len设置为-1，然后就可以达到上限4294967295，我在自己的机器下试了试，发现<strong>并不可以</strong>…我的系统是mac os 10.12 ，mysql的版本是5.7.19</p>
+<p>本文参考自CSDN，<a href="http://blog.csdn.net/alibert/article/details/51019351" target="_blank" rel="external">原文地址</a></p>
+
+	
+	</div>
+  <a type="button" href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2017/09/12/mysql_delete_problem/" >mysql非主键删除记录</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-09-12  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>这几天在使用mysql过程中发现了这样一个有趣问题：如果在执行delete操作时，where子句不是直接指定条件，mysql就会报错，内容如下：</p>
+<blockquote>
+<p>Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -&gt; SQL Editor and reconnect.</p>
+</blockquote>
+<p>查阅官方的手册后，官方时如此介绍的：</p>
+<blockquote>
+<p>For beginners, a useful startup option is <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--safe-updates</code></a> (or <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--i-am-a-dummy</code></a>, which has the same effect). It is helpful for cases when you might have issued a <code>DELETE FROM *tbl_name*</code> statement but forgotten the <code>WHERE</code> clause. Normally, such a statement deletes all rows from the table. With <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--safe-updates</code></a>, you can delete rows only by specifying the key values that identify them. This helps prevent accidents.</p>
+</blockquote>
+<p>原来mysql为了避免出现初学者在执行delete操作时未制定where条件导致整个表被删除，因此在系统变量中开启了<strong>SAVE-UPDATES</strong>模式，这样就能有效减少错误的产生了。</p>
+<p><strong>SAVE-UPDATES</strong>下有3个作用：这里就直接po出文档了</p>
+<ul>
+<li>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</li>
+<li>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</li>
+<li>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</li>
+</ul>
+<p>综上，可以使用如下办法解决</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> SQL_SAVE_UPDATES = <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>并不建议全局设置该变量，小心驶得万年船，尤其对经验不足童鞋来说~</p>
+<p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="external">传送门</a></p>
+
+	
+	</div>
+  <a type="button" href="/2017/09/12/mysql_delete_problem/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2017/09/05/python多线程技术-二/" >python多线程技术(二)</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-09-05  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>在《python多线程技术(一)》篇当中，曾粗略介绍了多线程技术及运行状态，及python对于多线程的支持和简单实用，还有印象的朋友一定还记得python中实现多线程的两种方式吧，如果不熟悉的话，建议你先去读一读我上一篇的博文哦🤓</p>
+<p>本篇是python多线程技术的精华所在，在真实项目开发中所使用到的多线程编程模型大部分都可以在我将要给出的代码示例中找到，如果本篇的内容过于繁多的话，按照我一如既往，短小精悍的写作特点来看的话～我也许还会写上第三篇哦😛</p>
+<h2 id="常见线程运行模型"><a href="#常见线程运行模型" class="headerlink" title="常见线程运行模型"></a>常见线程运行模型</h2><p>在开始撸码之前，我们还是看看的常见的线程模型有哪些～一起看看这些言简意赅，图文并茂的示意图（感谢麦子学院丁敬香老师提供的教学资料）</p>
+<h5 id="1-井水不犯河水"><a href="#1-井水不犯河水" class="headerlink" title="1.井水不犯河水"></a>1.井水不犯河水<img src="/img/pythread/module1.png" alt="井水不犯河水"></h5><h5 id="2-独木桥上相遇－线程等待"><a href="#2-独木桥上相遇－线程等待" class="headerlink" title="2.独木桥上相遇－线程等待"></a>2.独木桥上相遇－线程等待<img src="/img/pythread/module2.png" alt="独木桥上相遇－线程等待"></h5><h5 id="3-甘当幕后英雄－后台线程"><a href="#3-甘当幕后英雄－后台线程" class="headerlink" title="3.甘当幕后英雄－后台线程"></a>3.甘当幕后英雄－后台线程<img src="/img/pythread/module3.png" alt="甘当幕后英雄－后台线程"></h5><h5 id="4-我先用你后用－线程同步"><a href="#4-我先用你后用－线程同步" class="headerlink" title="4. 我先用你后用－线程同步"></a>4. 我先用你后用－线程同步<img src="/img/pythread/module4.png" alt="我先用你后用－线程同步"></h5><h5 id="5-操作也有先后－线程同步"><a href="#5-操作也有先后－线程同步" class="headerlink" title="5.操作也有先后－线程同步"></a>5.操作也有先后－线程同步<img src="/img/pythread/module5.png" alt="操作也有先后－线程同步"></h5><h5 id="6共享要悠着用－线程同步"><a href="#6共享要悠着用－线程同步" class="headerlink" title="6共享要悠着用－线程同步"></a>6共享要悠着用－线程同步<img src="/img/pythread/module6.png" alt="共享要悠着用－线程同步"></h5><h5 id="7-我用完后叫你－线程通信"><a href="#7-我用完后叫你－线程通信" class="headerlink" title="7.我用完后叫你－线程通信"></a>7.我用完后叫你－线程通信<img src="/img/pythread/module7.png" alt="我用完后叫你－线程通信"></h5><h2 id="具体代码实例"><a href="#具体代码实例" class="headerlink" title="具体代码实例"></a>具体代码实例</h2><p>#####1. 线程等待实例</p>
+<p>在python的多线程编程中实现线程的等待非常容易，只需要调用线程对象的<strong>join(self, timeout=None)</strong>方法即可</p>
+<p>被调用join()方法的线程会一直阻塞调用者的线程，直到自己结束（正常结束，或引发未处理异常），或超出timeout的时间。</p>
+<p>1.1.1 一般情形</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">20</span>):</div><div class="line">            print(<span class="string">'threading: '</span>, i)</div><div class="line">            time.sleep(<span class="number">0.1</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyThread()</div><div class="line">    t.start()</div><div class="line">    <span class="comment">#t.join()	# 取消注释即转变为线程等待情形</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">        print(<span class="string">'Main:'</span>, i)</div><div class="line">        time.sleep(<span class="number">0.1</span>)</div></pre></td></tr></table></figure>
+<p>运行结果如下<br><img src="/img/pythread/th_join1.png" alt="非等待"></p>
+<p>可以看到是两个线程交叉运行，如果我们需要在子线程运行完成后再运行主进程，调用<strong>join</strong>方法即可</p>
+<p>1.1.2 等待情形</p>
+<p>代码如上，取消<strong>join</strong>方法所在行的注释即可</p>
+<p>运行结果如下<br><img src="/img/pythread/th_join2.png" alt="等待"></p>
+<h5 id="2-守护线程（后台线程）"><a href="#2-守护线程（后台线程）" class="headerlink" title="2. 守护线程（后台线程）"></a>2. 守护线程（后台线程）</h5><p>在python中实现后台线程的情景相当容易，其步骤如下：</p>
+<blockquote>
+<p>1.建立线程                              </p>
+<p>2.设置线程的daemon属性为True</p>
+<p>3.启动线程                              </p>
+</blockquote>
+<p>需要注意的是被设定为后台运行的线程，会在主程序退出时主动自杀。</p>
+<p>2.1.1 一般情形</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dmn</span><span class="params">()</span>:</span></div><div class="line">    <span class="string">"""模拟后台线程的运行"""</span></div><div class="line">    print(<span class="string">'dmn start ...'</span>)</div><div class="line">    time.sleep(<span class="number">2</span>) <span class="comment"># 后台线程来不及结束，将会随着主线程的结束而退出</span></div><div class="line">    print(<span class="string">'dmn end.'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ndmn</span><span class="params">()</span>:</span></div><div class="line">    <span class="string">"""非后台线程运行"""</span></div><div class="line">    print(<span class="string">'ndmn start ...'</span>)</div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line">    print(<span class="string">'ndmn end.'</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    d = threading.Thread(target=dmn)</div><div class="line">    <span class="comment">#d.daemon= True		# 模拟后台线程时，请取消次注释</span></div><div class="line">    n = threading.Thread(target=ndmn)</div><div class="line">    print(<span class="string">'Main statr'</span>)</div><div class="line">    d.start()</div><div class="line">    n.start()</div><div class="line">    print(<span class="string">'Main end.'</span>）</div></pre></td></tr></table></figure>
+<p>运行结果如下<br><img src="/img/pythread/th_daem1.png" alt="非等待线程"></p>
+<p>可以看到主线程结束后，两个线程也相继结束</p>
+<p>2.2.2 守护线程情形</p>
+<p>代码如上，取消注释后，运行结果如下<br><img src="/img/pythread/th_daem2.png" alt="守护线程"></p>
+<p>可以看到主线程结束后，守护线程就自动退出，还来不及执行<em>print(‘dmn end.’)</em></p>
+<h5 id="3-线程同步（重点，难点）"><a href="#3-线程同步（重点，难点）" class="headerlink" title="3. 线程同步（重点，难点）"></a>3. 线程同步（重点，难点）</h5><p>python中线程同步的方式纷繁复杂，多种多样，为处理不同业务情形提供相应的工具和概念。python的theading模块主要提供了以下<strong>3</strong>种线程同步的方式：</p>
+<blockquote>
+<p>1.指令锁（Lock）</p>
+<p>2.条件变量（Condition）</p>
+<p>3.信号量（Semaphore）</p>
+</blockquote>
+<h6 id="3-1-指令锁"><a href="#3-1-指令锁" class="headerlink" title="3.1 指令锁"></a>3.1 指令锁</h6><h6 id="3-2-条件变量"><a href="#3-2-条件变量" class="headerlink" title="3.2 条件变量"></a>3.2 条件变量</h6><h6 id="3-3-信号量"><a href="#3-3-信号量" class="headerlink" title="3.3 信号量"></a>3.3 信号量</h6>
+	
+	</div>
+  <a type="button" href="/2017/09/05/python多线程技术-二/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2017/08/28/python多线程技术(一)/" >python多线程技术(一)</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-08-28  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>最近一直在学习python的当中多线程技术，感觉使用起来的确比java要方便多～正好乘这个机会，当作是一个记录和总结了</p>
+<h2 id="多线程技术概述"><a href="#多线程技术概述" class="headerlink" title="多线程技术概述"></a>多线程技术概述</h2><p>1.进程与线程</p>
+<ul>
+<li>进程：正在运行中的程序</li>
+<li>线程：进程中负责程序执行的控制单元（执行路径）一个进程可以有多个执行路径，称之为多线程</li>
+</ul>
+<p>2.多线程技术的意义</p>
+<blockquote>
+<p>开启多个线程是为了同时运行多部分代码，每一个线程都有自己运行的内容。这个内容就是多线程要执行的任务</p>
+</blockquote>
+<p>3.多线程的好处与弊端</p>
+<ul>
+<li><p>好处：解决了多部分程序同时运行的问题，由主机的操作系统给每个进程/线程安排一个小的时间片，</p>
+<p>在所有进程/线程间快速循环，使得每个执行单位都得到CPU的执行时间。</p>
+</li>
+<li><p>弊端：线程太多反而会导致cpu处理效率的降低，这是因为应用程序的执行都是cpu做着快速的切换完成的，而这个切换是随机的。</p>
+</li>
+</ul>
+<p>4.python中多线程局限性（这里的python如不加特殊说明都是指CPython）</p>
+<blockquote>
+<p>Python解释器内部使用了全局解释器锁（GIL），限制了一个Python程序只能在一个CPU核心上运行。</p>
+</blockquote>
+<p>所以…某种以上上…python语言的多线程特性…只是一个美丽的谎言…但这并不足以作为拒绝learning的理由，君不见node.js的异步单线程模型在大部分应用场合下～速度不都是杠杠滴嘛</p>
+<h2 id="创建多线程的方式"><a href="#创建多线程的方式" class="headerlink" title="创建多线程的方式"></a>创建多线程的方式</h2><p>python当中封装了有专门针对多线程解决方案的threading模块，我们对于多线程技术的各种功能需求，都可以在此模块当中找到，挑几个重要的介绍下吧～<img src="/img/pythread/threadingmodule.jpg" alt="threadingmodule"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类名</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Thread</td>
+<td style="text-align:center">表示控制线程的类，封装线程对象一般属性和开启以及等待方法</td>
+</tr>
+<tr>
+<td style="text-align:center">Lock</td>
+<td style="text-align:center">指令锁，封装由同步所需的获取🔒和释放锁的方法</td>
+</tr>
+<tr>
+<td style="text-align:center">RLock</td>
+<td style="text-align:center">可重入锁，用于同一线程多次获取同一资源，相应地也要release匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">Condition</td>
+<td style="text-align:center">条件变量，常用于生产者，消费者模型中的共享变量控制及线程间的通信</td>
+</tr>
+<tr>
+<td style="text-align:center">Semaphore</td>
+<td style="text-align:center">信号量，内部维护着一个计数器，可用于实现对稀缺资源的控制，如数据库连接池等</td>
+</tr>
+<tr>
+<td style="text-align:center">Event</td>
+<td style="text-align:center">事件，用于</td>
+</tr>
+</tbody>
+</table>
+<p>在python中有两种方式创建线程，以下来自Thread类doc说明</p>
+<blockquote>
+<p>There are two ways to specify the activity: by passing a callable object to the constructor, or by overriding the run() method in a subclass</p>
+</blockquote>
+<p>下面先介绍下Thread对象相关属性和方法，以及线程的创建方式<img src="/img/pythread/thread.png" alt="Thread对象"></p>
+<ul>
+<li><p>第一种方式：继承Thread类并重写run()方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">  </div><div class="line">  </div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">      	super().__init__()</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        s = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">            s += i;</div><div class="line">            time.sleep(<span class="number">0.1</span>)</div><div class="line">        print(s)</div><div class="line"> </div><div class="line">th = MyThread()</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二种方式：在实例化Thread对象时传入线程的运行目标任务（一个函数）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">thfun</span><span class="params">()</span>:</span></div><div class="line">    s = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        s += i;</div><div class="line">        time.sleep(<span class="number">0.1</span>)</div><div class="line">    print(s)</div><div class="line"></div><div class="line">th = threading.Thread(target=thfun)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>创建线程后即可调用 <strong>start()</strong>方法调用开启线程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">th.start()</div></pre></td></tr></table></figure>
+<h2 id="多线程的运行状态"><a href="#多线程的运行状态" class="headerlink" title="多线程的运行状态"></a>多线程的运行状态</h2><p>引用某大佬的一幅图来解释吧，在此先膜拜下大佬～<img src="/img/pythread/threadstatus.png" alt="threadstatus"></p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>受篇幅限制，本次关于python下多线程技术就暂且聊到这里了，太长的文章想必大佬们也没耐心看下去…相信这里的内容对任何有一定语言基础的朋友来说都是再容易不过了🤓～接下来的博主要更新的文章将是多线程技术中的核心与精华（不限语言），暂且剧透下吧😈：指令锁实现同步、条件变量模拟生产者消费者模型、信号量实现对稀缺资源的控制、使用事件实现线程间的通信…敬请期待，预计1～2篇，下次我会po上全部完整代码😎</p>
+
+	
+	</div>
+  <a type="button" href="/2017/08/28/python多线程技术(一)/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+
+   
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Hexo/">Hexo<span>1</span></a></li>
+		
+			<li><a href="/categories/RabbitMQ/">RabbitMQ<span>1</span></a></li>
+		
+			<li><a href="/categories/Travis-CI-持续集成/">Travis.CI 持续集成<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>2</span></a></li>
+		
+			<li><a href="/categories/python-多线程/">python 多线程<span>2</span></a></li>
+		
+			<li><a href="/categories/个人随笔/">个人随笔<span>1</span></a></li>
+		
+			<li><a href="/categories/微信小程序/">微信小程序<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
+		
+			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
+		
+			<li><a href="/tags/生活记录/">生活记录<span>1</span></a></li>
+		
+			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
+		
+			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
+		
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
     
+      <li>
+        <a href="/2018/03/29/travis-ci车技要点/" ><i class="fa fa-file-o"></i>travis-ci车技要点</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/07/怎样使用hexo生成自己的githup主页/" ><i class="fa fa-file-o"></i>怎样使用Hexo生成自己的github主页</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/07/Android开发从小白到入门再到放弃/" ><i class="fa fa-file-o"></i>Android开发从小白到入门再到放弃</a>
+      </li>
+    
+      <li>
+        <a href="/2018/02/12/RabbitMQ基础（一）/" ><i class="fa fa-file-o"></i>RabbitMQ基础（一）</a>
+      </li>
+    
+      <li>
+        <a href="/2017/11/20/微信小程序踩坑记/" ><i class="fa fa-file-o"></i>微信小程序踩坑记</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow" title="blackshow's Github repository." target="_blank"]);">原作者地址</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow/hexo-theme-freemind.386" title="Freemind.386's Github repository." target="_blank"]);">主题地址</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/deimo" title="My Github account." target="_blank"]);">我的gihub地址</a></li>
+	
+		<li><i class="fa fa-zhihu"></i><a href="https://www.zhihu.com/" title="My Github account." target="_blank"]);">知乎发现</a></li>
+	
+	</ul>
 </div>
 
 
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>DeiMo's blog
-        </div>
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
 
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
-</footer>
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 DeiMo
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
 
 
-                    <!-- Import File -->
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
 
 
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
-
-
-
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
 
 
 
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
 
-
-
-
-
-
-
-
-
-    <!-- Swiftye -->
-    
-
-    <!-- Local Search-->
-    
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Window Load-->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-</script>
-
-<!-- MathJax Load-->
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Bing Background -->
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
-    
-</html>
+</body>
+   </html>

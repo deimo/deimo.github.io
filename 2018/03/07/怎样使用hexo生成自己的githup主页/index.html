@@ -116,16 +116,20 @@
 	<div class="mypage">		
 	  		
 
-	  <p>欢迎使用<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>. 好吧，我还是保留原文这段描述吧～接下来就是干货了，需要注意的事本教程环境是在Mac os下完成</p>
+	  <p>欢迎使用<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>. 好吧，我还是保留原文这段描述吧～接下来就是干货了，需要注意的事本教程环境是在Mac os下完成</p>
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><blockquote>
 <p>安装有node.js  和 npm～（你去node官网下载时，肯定都会带有npm吧）</p>
+</blockquote>
+<blockquote>
 <p>安装有Git</p>
+</blockquote>
+<blockquote>
 <p>一个github账号</p>
 </blockquote>
 <p>上述工具的安装和使用我不是本教程的重点，如果你对于它们都很陌生，那本教程就不大适合于你了🙁</p>
 <h2 id="生成本地Hexo站点"><a href="#生成本地Hexo站点" class="headerlink" title="生成本地Hexo站点"></a>生成本地Hexo站点</h2><p>在你安装好了node.js，并且修改了它的镜像源后，就可以真正开始接下来的操作了。（还没修改的赶紧去改改哈，天朝网络原因…我就不解释了）</p>
-<p>1.安装Hexo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
-<p>2.生成一个Hexo站点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init [website-name] 名字任意， 这里我就使用的是blog， 完整命令是</div><div class="line">hexo init blog</div></pre></td></tr></table></figure></p>
+<p>1.安装Hexo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
+<p>2.生成一个Hexo站点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init [website-name] 名字任意， 这里我就使用的是blog， 完整命令是</span><br><span class="line">hexo init blog</span><br></pre></td></tr></table></figure></p>
 <p>你会发现在你的目录下多了这些文件…项目中各文件夹的定义情查阅官网doc，这里选几个重要描述<img src="/img/hexo/tree.png" alt="tree"></p>
 <table>
 <thead>
@@ -149,40 +153,40 @@
 </tr>
 </tbody>
 </table>
-<p>3.安装Hexo所需依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">首先 cd blog (你之前生成站点名)</div><div class="line">然后执行 npm install</div></pre></td></tr></table></figure></p>
-<p>4.本地预览调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure></p>
+<p>3.安装Hexo所需依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">首先 cd blog (你之前生成站点名)</span><br><span class="line">然后执行 npm install</span><br></pre></td></tr></table></figure></p>
+<p>4.本地预览调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s --debug</span><br></pre></td></tr></table></figure></p>
 <p>之后你就可以代开浏览器访问<strong>localhost:4000</strong>地址预览博客页面，下面帖上一张图吧(已经很漂亮吧，如果你还不满意，后续会介绍如何修改主题)<img src="/img/hexo/preview.png" alt="preview"></p>
 <h2 id="部署到Githup"><a href="#部署到Githup" class="headerlink" title="部署到Githup"></a>部署到Githup</h2><p>部署到github之前你需要完成以下几个工作</p>
 <p>1.在github上新建一个Repository，仓库名必须为【your_user_name.github.io】写法固定，这样github才会为你提供域名服务</p>
 <p>2.安装hexo与github相关联的package</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>3.修改站点配置文件，上文提到过的 <strong>_config.yml</strong>文件(位置在最下面)，格式如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/deimo/deimo.github.io.git(我的)</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/deimo/deimo.github.io.git(我的)</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>4.生成静态页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate （或hexo g）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate （或hexo g）</span><br></pre></td></tr></table></figure>
 <p>如果有报错发生，执行下列操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo-renderer-ejs --save</div><div class="line">npm install hexo-renderer-stylus --save</div><div class="line">npm install hexo-renderer-marked --save</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-ejs --save</span><br><span class="line">npm install hexo-renderer-stylus --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
 <p>5.发布到你的github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <p>此时也许会让你输入你的github用户名和密码…当然如果你使用ssh key，那应该不会要求你的用户名和密码</p>
 <p>此时就可以在浏览器中访问:<strong><a href="https://deimo.github.io">https://deimo.github.io</a></strong>，如果有内容显示～那么恭喜你👏</p>
 <p>至此～你的github主页就已经搭建好了～让我们庆祝一下🎁</p>
 <h2 id="发布新的博文"><a href="#发布新的博文" class="headerlink" title="发布新的博文"></a>发布新的博文</h2><p>好吧，这里我就偷懒了…我就直接用生成站点时的原文内容好了…</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a><strong>Create</strong> a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a><strong>Create</strong> a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 <p>所以每次在你的博文写完后，你的部署操作大致是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <p>一些其它常用的hexo命令参考，更多请参见Hexo官网</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line">hexo help  #查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure>
-<h2 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h2><p>1.关于主题<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">themes</a> 当然你也可以知乎上搜索更多关于主题的信息</p>
-<p>2.Hexo官网<a href="https://hexo.io/" target="_blank" rel="external">hexo</a></p>
-<p>3.🙏感谢这位大佬的blog，才让我有了此教程,<a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2" target="_blank" rel="external">传送门</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  #查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+<h2 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h2><p>1.关于主题<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">themes</a> 当然你也可以知乎上搜索更多关于主题的信息</p>
+<p>2.Hexo官网<a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a></p>
+<p>3.🙏感谢这位大佬的blog，才让我有了此教程,<a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2" target="_blank" rel="noopener">传送门</a></p>
 	  
 	</div>
 

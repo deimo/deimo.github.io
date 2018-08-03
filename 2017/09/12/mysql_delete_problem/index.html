@@ -124,19 +124,19 @@ Error Code: 1175. You are using safe update mode and you tried to update a t">
 </blockquote>
 <p>查阅官方的手册后，官方时如此介绍的：</p>
 <blockquote>
-<p>For beginners, a useful startup option is <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--safe-updates</code></a> (or <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--i-am-a-dummy</code></a>, which has the same effect). It is helpful for cases when you might have issued a <code>DELETE FROM *tbl_name*</code> statement but forgotten the <code>WHERE</code> clause. Normally, such a statement deletes all rows from the table. With <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="external"><code>--safe-updates</code></a>, you can delete rows only by specifying the key values that identify them. This helps prevent accidents.</p>
+<p>For beginners, a useful startup option is <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="noopener"><code>--safe-updates</code></a> (or <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="noopener"><code>--i-am-a-dummy</code></a>, which has the same effect). It is helpful for cases when you might have issued a <code>DELETE FROM *tbl_name*</code> statement but forgotten the <code>WHERE</code> clause. Normally, such a statement deletes all rows from the table. With <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="noopener"><code>--safe-updates</code></a>, you can delete rows only by specifying the key values that identify them. This helps prevent accidents.</p>
 </blockquote>
 <p>原来mysql为了避免出现初学者在执行delete操作时未制定where条件导致整个表被删除，因此在系统变量中开启了<strong>SAVE-UPDATES</strong>模式，这样就能有效减少错误的产生了。</p>
 <p><strong>SAVE-UPDATES</strong>下有3个作用：这里就直接po出文档了</p>
 <ul>
-<li>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="external"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="external"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</li>
-<li>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</li>
-<li>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="external"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</li>
+<li>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="noopener"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="noopener"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</li>
+<li>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="noopener"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</li>
+<li>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="noopener"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</li>
 </ul>
 <p>综上，可以使用如下办法解决</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> SQL_SAVE_UPDATES = <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> SQL_SAVE_UPDATES = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <p>并不建议全局设置该变量，小心驶得万年船，尤其对经验不足童鞋来说~</p>
-<p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="external">传送门</a></p>
+<p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="noopener">传送门</a></p>
 	  
 	</div>
 

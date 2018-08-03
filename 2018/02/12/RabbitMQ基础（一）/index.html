@@ -169,9 +169,9 @@
 </li>
 </ul>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>Mac上可以使用brew</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install RabbitMQ</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install RabbitMQ</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意在Mac OS 10.12以后，不在允许brew使用Root权限，如果只是单单纯学习使用，可使用官网二进制程序集<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="external">地址</a></p>
+<p>注意在Mac OS 10.12以后，不在允许brew使用Root权限，如果只是单单纯学习使用，可使用官网二进制程序集<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="noopener">地址</a></p>
 </blockquote>
 <h4 id="RabbitMQ的消息通信模型"><a href="#RabbitMQ的消息通信模型" class="headerlink" title="RabbitMQ的消息通信模型"></a>RabbitMQ的消息通信模型</h4><h6 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h6><p>消息（message）被发布者（publisher）发送给交换机（exchange），交换机常常被比喻成邮局或者邮箱。然后交换机将收到的消息根据路由规则分发给绑定的队列（queue）。最后AMQP代理会将消息投递给订阅了此队列的消费者，或者消费者按照需求自行获取。如下图</p>
 <p><img src="/img/rabbitmq/hello-world.png" alt="rabbitmq消息通信模型"></p>
@@ -215,7 +215,7 @@
 </tr>
 </tbody>
 </table>
-<ol>
+<ol start="3">
 <li><p>信道</p>
 <blockquote>
 <p>有些应用需要与AMQP代理建立多个连接。无论怎样，同时开启多个TCP连接都是不合适的，因为这样做会消耗掉过多的系统资源并且使得防火墙的配置更加困难。AMQP 0-9-1提供了通道（channels）来处理多连接，可以把通道理解成共享一个TCP连接的多个轻量化连接。</p>
@@ -236,8 +236,8 @@
 </ol>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>本文参考列表如下</p>
 <ol>
-<li>《消息队列之 RabbitMQ》<a href="https://www.jianshu.com/p/79ca08116d57" target="_blank" rel="external">简书地址</a></li>
-<li>《RabbitMQ 中文文档》<a href="http://rabbitmq.mr-ping.com/" target="_blank" rel="external">Gitbook地址</a></li>
+<li>《消息队列之 RabbitMQ》<a href="https://www.jianshu.com/p/79ca08116d57" target="_blank" rel="noopener">简书地址</a></li>
+<li>《RabbitMQ 中文文档》<a href="http://rabbitmq.mr-ping.com/" target="_blank" rel="noopener">Gitbook地址</a></li>
 </ol>
 	  
 	</div>

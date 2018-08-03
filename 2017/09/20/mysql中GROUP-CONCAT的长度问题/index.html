@@ -122,10 +122,10 @@
 <li><p>修改变量 group_concat_max_len的值</p>
 <ul>
 <li><p>修改session变量，只对该连接客户有效</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> [<span class="keyword">SESSION</span>] group_concat_max_len=<span class="number">102400</span>;</div></pre></td></tr></table></figure>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> [<span class="keyword">SESSION</span>] group_concat_max_len=<span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改global变量，对所有连接都生效</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> group_concat_max_len=<span class="number">102400</span>;</div></pre></td></tr></table></figure>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> group_concat_max_len=<span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -135,7 +135,7 @@
 <p>在mysql启动的配置文件下，进行设置，各平台下配置文件存放的目录不同，配置文件的具体存放位置，不是本文要讨论的内容</p>
 <p>以我的mac os系统为例，我已经将mysql的配置文件写在/etc目录下，只需要在mysqld节点下group_concat_max_len = [size] (size是你定义的大小，上限为4294967295)<img src="/img/mysql/group_concat_len.png" alt="group_concat_len"></p>
 <p>曾经看到过一些文章的说法是将group_concat_max_len设置为-1，然后就可以达到上限4294967295，我在自己的机器下试了试，发现<strong>并不可以</strong>…我的系统是mac os 10.12 ，mysql的版本是5.7.19</p>
-<p>本文参考自CSDN，<a href="http://blog.csdn.net/alibert/article/details/51019351" target="_blank" rel="external">原文地址</a></p>
+<p>本文参考自CSDN，<a href="http://blog.csdn.net/alibert/article/details/51019351" target="_blank" rel="noopener">原文地址</a></p>
 	  
 	</div>
 

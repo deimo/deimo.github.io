@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>glances实现服务器资源监控 | DeiMo&#39;s blog</title>
+  <meta name="author" content="DeiMo">
+  
+  <meta name="description" content="glances实现服务器资源监控在这篇文章中我将会传授使用glances10min搭建一个服务器性能实时监控系统的车技~！
+准备工作
+什么是glances
+
+glances是一个由python实现的类似top或htop的服务器性能监控工具，区别在于glances提供的信息和可使用的参数更多，具体其中">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="glances实现服务器资源监控"/>
+  <meta property="og:site_name" content="DeiMo&#39;s blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">DeiMo&#39;s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> glances实现服务器资源监控</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="glances实现服务器资源监控"><a href="#glances实现服务器资源监控" class="headerlink" title="glances实现服务器资源监控"></a>glances实现服务器资源监控</h2><p>在这篇文章中我将会传授使用glances10min搭建一个服务器性能实时监控系统的车技~！</p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>什么是glances</li>
+</ol>
+<p>glances是一个由python实现的类似<code>top</code>或<code>htop</code>的服务器性能监控工具，区别在于glances提供的信息和可使用的参数更多，具体其中包括信息：</p>
+<ul>
+<li>CPU 使用率</li>
+<li>内存使用情况</li>
+<li>内核统计信息和运行队列信息</li>
+<li>磁盘 I/O 速度、传输和读/写比率</li>
+<li>文件系统中的可用空间</li>
+<li>磁盘适配器</li>
+<li>网络 I/O 速度、传输和读/写比率</li>
+<li>页面空间和页面速度</li>
+<li>消耗资源最多的进程</li>
+<li>计算机信息和系统资源</li>
+</ul>
+<ol start="2">
+<li><p>安装glances</p>
+<p>建议安装py2.7.x下的glances，原因是由于在搭建glances的web server环境时py3下的glances的配套bottle框架貌似没有完全兼容（我在我的mac测试未通过）出现字符编码错误</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install glances</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="在命令行中使用glances"><a href="#在命令行中使用glances" class="headerlink" title="在命令行中使用glances"></a>在命令行中使用glances</h4><p>安装完成后直接在终端下执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glances</span><br></pre></td></tr></table></figure>
+<p>如果出现类似这样的画面，那么恭喜你，你的glances工具就算是安装好了</p>
+<p><img src="/img/glances/1.jpg" alt="glances运行图"></p>
+<p>当然glances的用法远不止如此，更多的glances用法及命令行参数释义，请查阅官方的<a href="http://glances.readthedocs.io/en/latest/" target="_blank" rel="noopener">doc</a></p>
+<h4 id="搭建glances实时监控web服务"><a href="#搭建glances实时监控web服务" class="headerlink" title="搭建glances实时监控web服务"></a>搭建glances实时监控web服务</h4><ol>
+<li><p>安装bottle</p>
+<p>glances的web服务需要和bottle框架配合才能使用，所以需要先安装bottle，同样是建议安装py2.7.x版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install bottle</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动glances服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glances -w</span><br></pre></td></tr></table></figure>
+<p>此时终端上就会有相应的输出，你可以根据终端提示在浏览器端进行访问，页面如下</p>
+<p><img src="/img/glances/2.jpg" alt="web端的运行截图"></p>
+</li>
+</ol>
+<h4 id="服务器上的简单部署"><a href="#服务器上的简单部署" class="headerlink" title="服务器上的简单部署"></a>服务器上的简单部署</h4><p>由于bottle也是符合WSGI规范的web应用，所以部署思路和其它WSGI应用如Django，Flask相同：使用nginx作为反向代理将请求转发至glances服务端口即可</p>
+<ol>
+<li><p>部署前的工作</p>
+<ul>
+<li><p>上文说得全部</p>
+</li>
+<li><p>nginx</p>
+</li>
+<li>screen</li>
+</ul>
+</li>
+<li><p>开始部署</p>
+<p>i. 进入screen，然后开启glances服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -S glances	<span class="comment"># 新建一个名叫一个[glances]的任务session</span></span><br><span class="line">glances -w		    <span class="comment">#  开启glances服务</span></span><br></pre></td></tr></table></figure>
+<p>然后Ctrl + a, Ctrl + d 将glances任务Detached掉</p>
+<p>ii. 配置nginx</p>
+<p>1）我们肯定不希望自己服务器的信息被别人知道，所以要使用nginx提供的认证功能</p>
+<p>我以自己的实际部署情况为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 请使用带有root身份的用户登录</span></span><br><span class="line">➜  <span class="built_in">cd</span> /etc/nginx/passwd			<span class="comment"># 进入自己密码文件所在目录</span></span><br><span class="line">➜  htpasswd -c ./auth.txt <span class="built_in">test</span>	 <span class="comment"># 新建一个test用户</span></span><br><span class="line">New password:					<span class="comment"># 输入密码</span></span><br><span class="line">Re-type new password:</span><br><span class="line">Adding password <span class="keyword">for</span> user <span class="built_in">test</span></span><br><span class="line">➜  cat auth.txt		 			<span class="comment"># 查看文件信息</span></span><br><span class="line"><span class="built_in">test</span>:<span class="variable">$apr1</span><span class="variable">$xQWpR2dM</span><span class="variable">$228RMBelnZn</span>.8o3GPE7E/1</span><br></pre></td></tr></table></figure>
+<p>2）编写nginx配置文件</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> [your domain];</span><br><span class="line">    <span class="attribute">auth_basic</span> <span class="string">"Please input password"</span>;</span><br><span class="line">    <span class="attribute">auth_basic_user_file</span> /etc/nginx/passwd/auth.txt;</span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="comment">#include uwsgi_params;</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> http://127.0.0.1:61208;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>    Host            <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>    X-Real-IP       <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>    X-Forwarded-for <span class="variable">$remote_addr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3）检查nginx语法然后重启nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t </span><br><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<p>接下来你就可以测试你的nginx认证和性能监控是否正常运行了</p>
+<p><img src="/img/glances/3.jpg" alt="nginx认证"></p>
+<p>认证成功之后就可以看到之前类似本机的web测试页面了，如果出错了，你可以进入screen查看报错原因</p>
+<p>怎么样，有没有觉得很easy呢~😋😋😋</p>
+</li>
+</ol>
+<h4 id="参考列表"><a href="#参考列表" class="headerlink" title="参考列表"></a>参考列表</h4><ol>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/1304_caoyq_glances/" target="_blank" rel="noopener">使用资源监控工具 glances</a></li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一页</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/08/03/CentOS7-上安装Docker-CE/" type="button" class="btn btn-default ">下一页<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-08-05 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/后端/">后端<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 DeiMo
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

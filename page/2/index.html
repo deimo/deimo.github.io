@@ -117,6 +117,52 @@
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
+			<a href="/2017/09/12/mysql_delete_problem/" >mysql非主键删除记录</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-09-12  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>这几天在使用mysql过程中发现了这样一个有趣问题：如果在执行delete操作时，where子句不是直接指定条件，mysql就会报错，内容如下：</p>
+<blockquote>
+<p>Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -&gt; SQL Editor and reconnect.</p>
+</blockquote>
+<p>查阅官方的手册后，官方时如此介绍的：</p>
+<blockquote>
+<p>For beginners, a useful startup option is <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="noopener"><code>--safe-updates</code></a> (or <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="noopener"><code>--i-am-a-dummy</code></a>, which has the same effect). It is helpful for cases when you might have issued a <code>DELETE FROM *tbl_name*</code> statement but forgotten the <code>WHERE</code> clause. Normally, such a statement deletes all rows from the table. With <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html#option_mysql_safe-updates" target="_blank" rel="noopener"><code>--safe-updates</code></a>, you can delete rows only by specifying the key values that identify them. This helps prevent accidents.</p>
+</blockquote>
+<p>原来mysql为了避免出现初学者在执行delete操作时未制定where条件导致整个表被删除，因此在系统变量中开启了<strong>SAVE-UPDATES</strong>模式，这样就能有效减少错误的产生了。</p>
+<p><strong>SAVE-UPDATES</strong>下有3个作用：这里就直接po出文档了</p>
+<ul>
+<li>You are not permitted to execute an <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html" target="_blank" rel="noopener"><code>UPDATE</code></a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html" target="_blank" rel="noopener"><code>DELETE</code></a> statement unless you specify a key constraint in the <code>WHERE</code> clause or provide a <code>LIMIT</code> clause (or both)</li>
+<li>The server limits all large <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="noopener"><code>SELECT</code></a> results to 1,000 rows unless the statement includes a <code>LIMIT</code> clause</li>
+<li>The server aborts multiple-table <a href="https://dev.mysql.com/doc/refman/5.7/en/select.html" target="_blank" rel="noopener"><code>SELECT</code></a> statements that probably need to examine more than 1,000,000 row combinations</li>
+</ul>
+<p>综上，可以使用如下办法解决</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> SQL_SAVE_UPDATES = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>并不建议全局设置该变量，小心驶得万年船，尤其对经验不足童鞋来说~</p>
+<p>更多内容请看这里，<a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-tips.html" target="_blank" rel="noopener">传送门</a></p>
+
+	
+	</div>
+  <a type="button" href="/2017/09/12/mysql_delete_problem/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
 			<a href="/2017/09/05/python多线程技术-二/" >python多线程技术(二)</a>
 		</h3>
 		</div>
@@ -336,7 +382,7 @@
 		
 			<li><a href="/categories/后端/">后端<span>1</span></a></li>
 		
-			<li><a href="/categories/微信小程序/">微信小程序<span>1</span></a></li>
+			<li><a href="/categories/微信小程序/">微信小程序<span>2</span></a></li>
 		
 		</ul>
 	</div>
@@ -347,23 +393,25 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/微信-原创教程/">微信 原创教程<span>1</span></a></li>
+		
+			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
+		
 			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
 		
 			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
 		
-			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
+			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
 		
-			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
 			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
 		
-			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
-		
-			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
-		
 			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
+		
+			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
 		
 		 
 		</ul>
@@ -375,6 +423,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2018/12/16/如何托管微信小程序注册-1/" ><i class="fa fa-file-o"></i>如何托管微信小程序注册(1)</a>
+      </li>
     
       <li>
         <a href="/2018/09/26/怎样使用hexo生成自己的githup主页/" ><i class="fa fa-file-o"></i>怎样使用Hexo生成自己的github主页</a>
@@ -390,10 +442,6 @@
     
       <li>
         <a href="/2018/04/16/与后端的爱恨情仇/" ><i class="fa fa-file-o"></i>与后端的爱恨情仇</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/29/travis-ci车技要点/" ><i class="fa fa-file-o"></i>travis-ci车技要点</a>
       </li>
     
   </ul>

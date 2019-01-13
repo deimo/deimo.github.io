@@ -117,6 +117,53 @@
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
+			<a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" >mysql中GROUP_CONCAT的长度问题</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2017-09-20  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是被截取了！！真的是非常令人蛋疼的问题呀，尤其是在类似聚合分组的业务，将数据反馈给客户端时，就更为严重了！多番查找折腾后发现，原来…<br>MYSQL内部对这个是有设置的，默认不设置的长度是1024，可以通过使用<code>show variables like &quot;group_concat_max_len</code>命令来查看该变量值<img src="/img/mysql/group_concat.png" alt="group_concat_max_len"></p>
+<p>想要指定GROUP_CONCAT的长度有两种方法：</p>
+<ol>
+<li><p>修改变量 group_concat_max_len的值</p>
+<ul>
+<li><p>修改session变量，只对该连接客户有效</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> [<span class="keyword">SESSION</span>] group_concat_max_len=<span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改global变量，对所有连接都生效</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> group_concat_max_len=<span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>修改配置文件（全局生效）</p>
+</li>
+</ol>
+<p>在mysql启动的配置文件下，进行设置，各平台下配置文件存放的目录不同，配置文件的具体存放位置，不是本文要讨论的内容</p>
+<p>以我的mac os系统为例，我已经将mysql的配置文件写在/etc目录下，只需要在mysqld节点下group_concat_max_len = [size] (size是你定义的大小，上限为4294967295)<img src="/img/mysql/group_concat_len.png" alt="group_concat_len"></p>
+<p>曾经看到过一些文章的说法是将group_concat_max_len设置为-1，然后就可以达到上限4294967295，我在自己的机器下试了试，发现<strong>并不可以</strong>…我的系统是mac os 10.12 ，mysql的版本是5.7.19</p>
+<p>本文参考自CSDN，<a href="http://blog.csdn.net/alibert/article/details/51019351" target="_blank" rel="noopener">原文地址</a></p>
+
+	
+	</div>
+  <a type="button" href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
 			<a href="/2017/09/12/mysql_delete_problem/" >mysql非主键删除记录</a>
 		</h3>
 		</div>
@@ -382,7 +429,7 @@
 		
 			<li><a href="/categories/后端/">后端<span>1</span></a></li>
 		
-			<li><a href="/categories/微信小程序/">微信小程序<span>2</span></a></li>
+			<li><a href="/categories/微信小程序/">微信小程序<span>3</span></a></li>
 		
 		</ul>
 	</div>
@@ -393,25 +440,25 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/微信-原创教程/">微信 原创教程<span>1</span></a></li>
-		
-			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
-		
-			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
-		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
 		
 			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
 		
 			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
 		
-			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
+			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
 		
-			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
+			<li><a href="/tags/微信-原创教程/">微信 原创教程<span>2</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
 			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
 		
-			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
+			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
+		
+			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
+		
+			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -423,6 +470,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2019/01/11/如何托管微信小程序注册-2/" ><i class="fa fa-file-o"></i>如何托管微信小程序注册(2)</a>
+      </li>
     
       <li>
         <a href="/2018/12/16/如何托管微信小程序注册-1/" ><i class="fa fa-file-o"></i>如何托管微信小程序注册(1)</a>
@@ -438,10 +489,6 @@
     
       <li>
         <a href="/2018/08/03/CentOS7-上安装Docker-CE/" ><i class="fa fa-file-o"></i>CentOS7+上安装Docker CE</a>
-      </li>
-    
-      <li>
-        <a href="/2018/04/16/与后端的爱恨情仇/" ><i class="fa fa-file-o"></i>与后端的爱恨情仇</a>
       </li>
     
   </ul>
@@ -476,7 +523,7 @@
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2018 DeiMo
+  &copy; 2019 DeiMo
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
      <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    

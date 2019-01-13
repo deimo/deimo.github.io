@@ -117,6 +117,90 @@
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
+			<a href="/2019/01/11/如何托管微信小程序注册-2/" >如何托管微信小程序注册(2)</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2019-01-11  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>在<a href="https://deimo.github.io/2018/12/16/%E5%A6%82%E4%BD%95%E6%89%98%E7%AE%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B3%A8%E5%86%8C-1/">上一篇</a>的教程中我向大家介绍了如何识别验证码，向自己的邮箱发送邮件等一系列的车技，在这一次的教程中我将以微信小程序注册的Step2，向大家介绍以下内容：</p>
+<ul>
+<li>如何根据IMAP协议轮询读取邮箱账户中的邮件</li>
+<li>如何模拟请求激活自己的邮箱账户</li>
+</ul>
+<h3 id="根据IMAP协议轮询读取邮箱账户中的邮件"><a href="#根据IMAP协议轮询读取邮箱账户中的邮件" class="headerlink" title="根据IMAP协议轮询读取邮箱账户中的邮件"></a>根据IMAP协议轮询读取邮箱账户中的邮件</h3><h4 id="IMAP协议简介"><a href="#IMAP协议简介" class="headerlink" title="IMAP协议简介"></a>IMAP协议简介</h4><blockquote>
+<p>IMAP（Internet Mail Access Protocol，Internet邮件访问协议）以前称作交互邮件访问协议（Interactive Mail Access Protocol）。IMAP是<a href="https://baike.baidu.com/item/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6/278716" target="_blank" rel="noopener">斯坦福大学</a>在1986年开发的一种邮件获取协议。它的主要作用是邮件<a href="https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E7%AB%AF" target="_blank" rel="noopener">客户端</a>（例如MS Outlook Express)可以通过这种协议从邮件<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="noopener">服务器</a>上获取邮件的信息，下载邮件等。当前的权威定义是RFC3501。IMAP协议运行在<a href="https://baike.baidu.com/item/TCP%2FIP%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">TCP/IP协议</a>之上，使用的端口是143。它与POP3协议的主要区别是用户可以不用把所有的<a href="https://baike.baidu.com/item/%E9%82%AE%E4%BB%B6/3110293" target="_blank" rel="noopener">邮件</a>全部下载，可以通过<a href="https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E7%AB%AF/101081" target="_blank" rel="noopener">客户端</a>直接对<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8/100571" target="_blank" rel="noopener">服务器</a>上的邮件进行操作。</p>
+</blockquote>
+<p>以上内容节选自<a href="https://baike.baidu.com/item/imap/350154?fr=aladdin" target="_blank" rel="noopener">百度百科</a>，更多有关IMAP协议的细节请自行查阅相关资料，总之我们需要明确的是：我们可以使用IMAP协议去读取自己的邮箱中的邮件</p>
+<h4 id="Python-IMAPClient库简介"><a href="#Python-IMAPClient库简介" class="headerlink" title="Python IMAPClient库简介"></a>Python IMAPClient库简介</h4><p>官方文档<a href="https://imapclient.readthedocs.io/en/2.1.0/" target="_blank" rel="noopener">传送门</a>！！！</p>
+<p> IMAPClient的底层基于Python标准库imaplib，但提供了一组更易用更Pythonic更完整的API</p>
+<h5 id="IMAPClient相关概念"><a href="#IMAPClient相关概念" class="headerlink" title="IMAPClient相关概念"></a>IMAPClient相关概念</h5><p>声明：以下内容皆为个人于官方<a href="https://imapclient.readthedocs.io/en/2.1.0/concepts.html#working-with-fetched-messages" target="_blank" rel="noopener">IMAPClient库</a>中了解到并结合个人理解，并不保证绝对的权威和正确，如有勘误，请及时指出</p>
+<ol>
+<li><p><strong>Message Identifiers</strong></p>
+<p>【消息标识】</p>
+<blockquote>
+<p>官方解释如下：<br>在IMAP邮件传输协议中，每一封邮件信息被整数来定义，这些消息的数字id对于给定的邮件文件夹而言是一定的</p>
+</blockquote>
+<p>你可以将这里的消息的标识理解为数据库表中的自增主键ID</p>
+</li>
+<li><p><strong>Message Flags</strong> </p>
+<p>【消息标记】</p>
+<blockquote>
+<p>解释如下：</p>
+<p>对于收件箱中的邮件总是存在一些状态的变化（最近接受、已读、已删除、草稿、已回复等），这些用于描述邮件的读取或收发状态</p>
+</blockquote>
+</li>
+<li><p><strong>Folder Name </strong></p>
+<p>【文件夹名】</p>
+<blockquote>
+<p>解释如下：</p>
+<p>个人登录邮箱时总是会有一些“容器”用于存放我们的分类邮件，如：收件箱，垃圾箱，已删除等，有图有真相</p>
+</blockquote>
+<p><img src="/img/vxregister/2-1.jpg" alt="文件夹截图"></p>
+</li>
+</ol>
+<h5 id="IMAPClient库的使用"><a href="#IMAPClient库的使用" class="headerlink" title="IMAPClient库的使用"></a>IMAPClient库的使用</h5><p>关于IMAPClient的库的使用，不是本文的重点，建议阅读官方文档，理清概念，总结要点，查看demo，自己编写demo亲试之~博主会将所有代码上传至github中，有需要的童鞋可以自行查看，下面po一个IMAP协议读取邮件的demo截图吧</p>
+<p><img src="/img/vxregister/2-2.jpg" alt="IMAPClient使用demo"></p>
+<h4 id="激活你的小程序邮箱账户"><a href="#激活你的小程序邮箱账户" class="headerlink" title="激活你的小程序邮箱账户"></a>激活你的小程序邮箱账户</h4><p>在你的可以成功读取自己的激活邮件内容之后，接下来需要干的自然便是激活邮件内容中的链接。这一过程我们仍然可以使用requests库去完成</p>
+<p>需要指出的是邮件内容中激活链接的获取，需要自己去解析<strong>html</strong>信息中的内容，你可以使用任何解析技术手段（XPath，BeautifulSoup）去处理，想必对于成功获取到邮件内容的你，这一定不是什么难题了~</p>
+<h5 id="1-激活过程分析"><a href="#1-激活过程分析" class="headerlink" title="1. 激活过程分析"></a>1. 激活过程分析</h5><p>当你在浏览器中访问邮件中的链接时，最终会被重定向到一个这样的一个地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mp.weixin.qq.com/wxopen/wacontractorpage?action=step3&amp;lang=zh_CN&amp;token=532810804</span><br></pre></td></tr></table></figure>
+<p>上述地址中的token参数值非常重要，你可以认为这是微信小程序端serve返回的此次激活标识，并且这个参数的值会在后续的表单请求中使用到，因此需要全局妥善保存~</p>
+<p>事实上，当你访问过邮件中的激活链接后，再次访问时，链接便已失效，将无法再得到任何正常响应。因此所谓的邮件激活你可以简单理解为直接向邮件内容中的地址发送请求</p>
+<h5 id="2-代码实战"><a href="#2-代码实战" class="headerlink" title="2. 代码实战"></a>2. 代码实战</h5><p>requests库对于重定向过程有一个默认的策略，如果你希望自己定义请求的过程中的全部行为，可以禁用它</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> parse_qs</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">session = requests.Session()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">(activate_url)</span>:</span></span><br><span class="line">    rsp1 = session.get(activate_url, allow_redirects=<span class="keyword">False</span>)</span><br><span class="line">    real_url = rsp1.headers[<span class="string">'location'</span>]</span><br><span class="line">    print(<span class="string">'real_url: '</span>, real_url)</span><br><span class="line">    pr = parse_qs(real_url)</span><br><span class="line">    token = pr[<span class="string">'token'</span>][<span class="number">0</span>]</span><br><span class="line">    print(<span class="string">'token: '</span>, token)</span><br></pre></td></tr></table></figure>
+<p>是的，你没看错，只需要简单几行代码就可以实现微信小程序的激活邮件激活并拿到全局请求token值了</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>好啦，今天的第二部分教程就到此为止啦~其实第三部分教程会依赖第二部分教程中的结果，但考虑到阅读量和学习量，将这部分内容分开来介绍了。</p>
+<p>在下一次教程中我将带给大家如下内容：</p>
+<ul>
+<li>模拟生成中国大陆居民身份证号（请勿用于非法目的！）</li>
+<li>向微信小程序serve申请获取短信验证码（请勿用于刷tencent的短信or短信轰炸他人！）</li>
+<li>基于IMAP协议轮询邮件列表</li>
+<li>异步通知：确认用户的微信个人信息和小程序申请中的填写的个人信息匹配一致</li>
+</ul>
+<p>如果你喜欢我的文章，可以考虑<strong>buy me a cup of coffie</strong></p>
+<p><img src="/img/vxregister/qr.jpg" alt="赞赏"></p>
+
+	
+	</div>
+  <a type="button" href="/2019/01/11/如何托管微信小程序注册-2/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
 			<a href="/2018/12/16/如何托管微信小程序注册-1/" >如何托管微信小程序注册(1)</a>
 		</h3>
 		</div>
@@ -194,9 +278,9 @@
 <p>测试结果如下：</p>
 <p><img src="/img/vxregister/1-5.jpg" alt="测试结果"></p>
 <p>收到的邮件如图:</p>
-<p><img src="img/vxregister/1-6.jpg" alt="收到邮件"></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>好啦，今天的第一部分教程就到此为止啦，明天我将教大家实现使用IMAP协议，读取邮件并激活，敬请期待。如果你喜欢我的文章，可以扫一下这个二维码给我一点鼓励</p>
-<p><img src="/img/vxregister/1-7.jpeg" alt="赞赏"></p>
+<p><img src="/img/vxregister/1-6.jpg" alt="收到邮件"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>好啦，今天的第一部分教程就到此为止啦，下一次我将为大家带来有关IMAP协议的介绍，读取邮件并激活，敬请期待。如果你喜欢我的文章，可以扫一下这个二维码给我一点鼓励</p>
+<p><img src="/img/vxregister/qr.jpg" alt="赞赏"></p>
 
 	
 	</div>
@@ -882,53 +966,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/" >mysql中GROUP_CONCAT的长度问题</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2017-09-20  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在mysql中，有个函数叫“GROUP_CONCAT”，平常使用可能发现不了问题，然而一旦数据量增大时，会发现内容被截取了！！！是的，你没看错，就是被截取了！！真的是非常令人蛋疼的问题呀，尤其是在类似聚合分组的业务，将数据反馈给客户端时，就更为严重了！多番查找折腾后发现，原来…<br>MYSQL内部对这个是有设置的，默认不设置的长度是1024，可以通过使用<code>show variables like &quot;group_concat_max_len</code>命令来查看该变量值<img src="/img/mysql/group_concat.png" alt="group_concat_max_len"></p>
-<p>想要指定GROUP_CONCAT的长度有两种方法：</p>
-<ol>
-<li><p>修改变量 group_concat_max_len的值</p>
-<ul>
-<li><p>修改session变量，只对该连接客户有效</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> [<span class="keyword">SESSION</span>] group_concat_max_len=<span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改global变量，对所有连接都生效</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> group_concat_max_len=<span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>修改配置文件（全局生效）</p>
-</li>
-</ol>
-<p>在mysql启动的配置文件下，进行设置，各平台下配置文件存放的目录不同，配置文件的具体存放位置，不是本文要讨论的内容</p>
-<p>以我的mac os系统为例，我已经将mysql的配置文件写在/etc目录下，只需要在mysqld节点下group_concat_max_len = [size] (size是你定义的大小，上限为4294967295)<img src="/img/mysql/group_concat_len.png" alt="group_concat_len"></p>
-<p>曾经看到过一些文章的说法是将group_concat_max_len设置为-1，然后就可以达到上限4294967295，我在自己的机器下试了试，发现<strong>并不可以</strong>…我的系统是mac os 10.12 ，mysql的版本是5.7.19</p>
-<p>本文参考自CSDN，<a href="http://blog.csdn.net/alibert/article/details/51019351" target="_blank" rel="noopener">原文地址</a></p>
-
-	
-	</div>
-  <a type="button" href="/2017/09/20/mysql中GROUP-CONCAT的长度问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -992,7 +1029,7 @@
 		
 			<li><a href="/categories/后端/">后端<span>1</span></a></li>
 		
-			<li><a href="/categories/微信小程序/">微信小程序<span>2</span></a></li>
+			<li><a href="/categories/微信小程序/">微信小程序<span>3</span></a></li>
 		
 		</ul>
 	</div>
@@ -1003,25 +1040,25 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/微信-原创教程/">微信 原创教程<span>1</span></a></li>
-		
 			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
 		
-			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
-		
-			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
-		
 			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
+		
+			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
+		
+			<li><a href="/tags/微信-原创教程/">微信 原创教程<span>2</span></a></li>
 		
 			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
 		
 			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
-		
 			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
 		
+			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
+		
 			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
+		
+			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
 		
 		 
 		</ul>
@@ -1033,6 +1070,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2019/01/11/如何托管微信小程序注册-2/" ><i class="fa fa-file-o"></i>如何托管微信小程序注册(2)</a>
+      </li>
     
       <li>
         <a href="/2018/12/16/如何托管微信小程序注册-1/" ><i class="fa fa-file-o"></i>如何托管微信小程序注册(1)</a>
@@ -1048,10 +1089,6 @@
     
       <li>
         <a href="/2018/08/03/CentOS7-上安装Docker-CE/" ><i class="fa fa-file-o"></i>CentOS7+上安装Docker CE</a>
-      </li>
-    
-      <li>
-        <a href="/2018/04/16/与后端的爱恨情仇/" ><i class="fa fa-file-o"></i>与后端的爱恨情仇</a>
       </li>
     
   </ul>
@@ -1086,7 +1123,7 @@
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2018 DeiMo
+  &copy; 2019 DeiMo
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
      <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    

@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>如何托管微信小程序注册(2) | DeiMo&#39;s blog</title>
+  <meta name="author" content="DeiMo">
+  
+  <meta name="description" content="在上一篇的教程中我向大家介绍了如何识别验证码，向自己的邮箱发送邮件等一系列的车技，在这一次的教程中我将以微信小程序注册的Step2，向大家介绍以下内容：
+
+如何根据IMAP协议轮询读取邮箱账户中的邮件
+如何模拟请求激活自己的邮箱账户
+
+根据IMAP协议轮询读取邮箱账户中的邮件IMAP协议简介
+IMA">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="如何托管微信小程序注册(2)"/>
+  <meta property="og:site_name" content="DeiMo&#39;s blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">DeiMo&#39;s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> 如何托管微信小程序注册(2)</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>在<a href="https://deimo.github.io/2018/12/16/%E5%A6%82%E4%BD%95%E6%89%98%E7%AE%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B3%A8%E5%86%8C-1/">上一篇</a>的教程中我向大家介绍了如何识别验证码，向自己的邮箱发送邮件等一系列的车技，在这一次的教程中我将以微信小程序注册的Step2，向大家介绍以下内容：</p>
+<ul>
+<li>如何根据IMAP协议轮询读取邮箱账户中的邮件</li>
+<li>如何模拟请求激活自己的邮箱账户</li>
+</ul>
+<h3 id="根据IMAP协议轮询读取邮箱账户中的邮件"><a href="#根据IMAP协议轮询读取邮箱账户中的邮件" class="headerlink" title="根据IMAP协议轮询读取邮箱账户中的邮件"></a>根据IMAP协议轮询读取邮箱账户中的邮件</h3><h4 id="IMAP协议简介"><a href="#IMAP协议简介" class="headerlink" title="IMAP协议简介"></a>IMAP协议简介</h4><blockquote>
+<p>IMAP（Internet Mail Access Protocol，Internet邮件访问协议）以前称作交互邮件访问协议（Interactive Mail Access Protocol）。IMAP是<a href="https://baike.baidu.com/item/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6/278716" target="_blank" rel="noopener">斯坦福大学</a>在1986年开发的一种邮件获取协议。它的主要作用是邮件<a href="https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E7%AB%AF" target="_blank" rel="noopener">客户端</a>（例如MS Outlook Express)可以通过这种协议从邮件<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="noopener">服务器</a>上获取邮件的信息，下载邮件等。当前的权威定义是RFC3501。IMAP协议运行在<a href="https://baike.baidu.com/item/TCP%2FIP%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">TCP/IP协议</a>之上，使用的端口是143。它与POP3协议的主要区别是用户可以不用把所有的<a href="https://baike.baidu.com/item/%E9%82%AE%E4%BB%B6/3110293" target="_blank" rel="noopener">邮件</a>全部下载，可以通过<a href="https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E7%AB%AF/101081" target="_blank" rel="noopener">客户端</a>直接对<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8/100571" target="_blank" rel="noopener">服务器</a>上的邮件进行操作。</p>
+</blockquote>
+<p>以上内容节选自<a href="https://baike.baidu.com/item/imap/350154?fr=aladdin" target="_blank" rel="noopener">百度百科</a>，更多有关IMAP协议的细节请自行查阅相关资料，总之我们需要明确的是：我们可以使用IMAP协议去读取自己的邮箱中的邮件</p>
+<h4 id="Python-IMAPClient库简介"><a href="#Python-IMAPClient库简介" class="headerlink" title="Python IMAPClient库简介"></a>Python IMAPClient库简介</h4><p>官方文档<a href="https://imapclient.readthedocs.io/en/2.1.0/" target="_blank" rel="noopener">传送门</a>！！！</p>
+<p> IMAPClient的底层基于Python标准库imaplib，但提供了一组更易用更Pythonic更完整的API</p>
+<h5 id="IMAPClient相关概念"><a href="#IMAPClient相关概念" class="headerlink" title="IMAPClient相关概念"></a>IMAPClient相关概念</h5><p>声明：以下内容皆为个人于官方<a href="https://imapclient.readthedocs.io/en/2.1.0/concepts.html#working-with-fetched-messages" target="_blank" rel="noopener">IMAPClient库</a>中了解到并结合个人理解，并不保证绝对的权威和正确，如有勘误，请及时指出</p>
+<ol>
+<li><p><strong>Message Identifiers</strong></p>
+<p>【消息标识】</p>
+<blockquote>
+<p>官方解释如下：<br>在IMAP邮件传输协议中，每一封邮件信息被整数来定义，这些消息的数字id对于给定的邮件文件夹而言是一定的</p>
+</blockquote>
+<p>你可以将这里的消息的标识理解为数据库表中的自增主键ID</p>
+</li>
+<li><p><strong>Message Flags</strong> </p>
+<p>【消息标记】</p>
+<blockquote>
+<p>解释如下：</p>
+<p>对于收件箱中的邮件总是存在一些状态的变化（最近接受、已读、已删除、草稿、已回复等），这些用于描述邮件的读取或收发状态</p>
+</blockquote>
+</li>
+<li><p><strong>Folder Name </strong></p>
+<p>【文件夹名】</p>
+<blockquote>
+<p>解释如下：</p>
+<p>个人登录邮箱时总是会有一些“容器”用于存放我们的分类邮件，如：收件箱，垃圾箱，已删除等，有图有真相</p>
+</blockquote>
+<p><img src="/img/vxregister/2-1.jpg" alt="文件夹截图"></p>
+</li>
+</ol>
+<h5 id="IMAPClient库的使用"><a href="#IMAPClient库的使用" class="headerlink" title="IMAPClient库的使用"></a>IMAPClient库的使用</h5><p>关于IMAPClient的库的使用，不是本文的重点，建议阅读官方文档，理清概念，总结要点，查看demo，自己编写demo亲试之~博主会将所有代码上传至github中，有需要的童鞋可以自行查看，下面po一个IMAP协议读取邮件的demo截图吧</p>
+<p><img src="/img/vxregister/2-2.jpg" alt="IMAPClient使用demo"></p>
+<h4 id="激活你的小程序邮箱账户"><a href="#激活你的小程序邮箱账户" class="headerlink" title="激活你的小程序邮箱账户"></a>激活你的小程序邮箱账户</h4><p>在你的可以成功读取自己的激活邮件内容之后，接下来需要干的自然便是激活邮件内容中的链接。这一过程我们仍然可以使用requests库去完成</p>
+<p>需要指出的是邮件内容中激活链接的获取，需要自己去解析<strong>html</strong>信息中的内容，你可以使用任何解析技术手段（XPath，BeautifulSoup）去处理，想必对于成功获取到邮件内容的你，这一定不是什么难题了~</p>
+<h5 id="1-激活过程分析"><a href="#1-激活过程分析" class="headerlink" title="1. 激活过程分析"></a>1. 激活过程分析</h5><p>当你在浏览器中访问邮件中的链接时，最终会被重定向到一个这样的一个地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mp.weixin.qq.com/wxopen/wacontractorpage?action=step3&amp;lang=zh_CN&amp;token=532810804</span><br></pre></td></tr></table></figure>
+<p>上述地址中的token参数值非常重要，你可以认为这是微信小程序端serve返回的此次激活标识，并且这个参数的值会在后续的表单请求中使用到，因此需要全局妥善保存~</p>
+<p>事实上，当你访问过邮件中的激活链接后，再次访问时，链接便已失效，将无法再得到任何正常响应。因此所谓的邮件激活你可以简单理解为直接向邮件内容中的地址发送请求</p>
+<h5 id="2-代码实战"><a href="#2-代码实战" class="headerlink" title="2. 代码实战"></a>2. 代码实战</h5><p>requests库对于重定向过程有一个默认的策略，如果你希望自己定义请求的过程中的全部行为，可以禁用它</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> parse_qs</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">session = requests.Session()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">(activate_url)</span>:</span></span><br><span class="line">    rsp1 = session.get(activate_url, allow_redirects=<span class="keyword">False</span>)</span><br><span class="line">    real_url = rsp1.headers[<span class="string">'location'</span>]</span><br><span class="line">    print(<span class="string">'real_url: '</span>, real_url)</span><br><span class="line">    pr = parse_qs(real_url)</span><br><span class="line">    token = pr[<span class="string">'token'</span>][<span class="number">0</span>]</span><br><span class="line">    print(<span class="string">'token: '</span>, token)</span><br></pre></td></tr></table></figure>
+<p>是的，你没看错，只需要简单几行代码就可以实现微信小程序的激活邮件激活并拿到全局请求token值了</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>好啦，今天的第二部分教程就到此为止啦~其实第三部分教程会依赖第二部分教程中的结果，但考虑到阅读量和学习量，将这部分内容分开来介绍了。</p>
+<p>在下一次教程中我将带给大家如下内容：</p>
+<ul>
+<li>模拟生成中国大陆居民身份证号（请勿用于非法目的！）</li>
+<li>向微信小程序serve申请获取短信验证码（请勿用于刷tencent的短信or短信轰炸他人！）</li>
+<li>基于IMAP协议轮询邮件列表</li>
+<li>异步通知：确认用户的微信个人信息和小程序申请中的填写的个人信息匹配一致</li>
+</ul>
+<p>如果你喜欢我的文章，可以考虑<strong>buy me a cup of coffie</strong></p>
+<p><img src="/img/vxregister/qr.jpg" alt="赞赏"></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一页</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/12/16/如何托管微信小程序注册-1/" type="button" class="btn btn-default ">下一页<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2019-01-11 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/微信小程序/">微信小程序<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/微信-原创教程/">微信 原创教程<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+		   <span class="toc-title">Contents</span>
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#根据IMAP协议轮询读取邮箱账户中的邮件"><span class="toc-article-text">根据IMAP协议轮询读取邮箱账户中的邮件</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#IMAP协议简介"><span class="toc-article-text">IMAP协议简介</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Python-IMAPClient库简介"><span class="toc-article-text">Python IMAPClient库简介</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#IMAPClient相关概念"><span class="toc-article-text">IMAPClient相关概念</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#IMAPClient库的使用"><span class="toc-article-text">IMAPClient库的使用</span></a></li></ol></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#激活你的小程序邮箱账户"><span class="toc-article-text">激活你的小程序邮箱账户</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#1-激活过程分析"><span class="toc-article-text">1. 激活过程分析</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#2-代码实战"><span class="toc-article-text">2. 代码实战</span></a></li></ol></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#结语"><span class="toc-article-text">结语</span></a>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 DeiMo
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

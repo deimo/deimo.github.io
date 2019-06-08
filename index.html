@@ -202,8 +202,8 @@
 </ul>
 <h4 id="过程描述"><a href="#过程描述" class="headerlink" title="过程描述"></a>过程描述</h4><p>基于此前密钥就是钥匙的假设，可以认为加密过程理解为将数据装进一个带锁的箱子，这个锁只有钥匙(密钥)拥有者才能打开，而相应的解密过程就是使用密钥打开上锁的箱子并取出其中数据</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>代码参考<a href="https://www.jianshu.com/p/5d27888e7c93" target="_blank" rel="noopener">简书文章</a>，基于pycryptodome使用Python编写</p>
-<h6 id="加密流程"><a href="#加密流程" class="headerlink" title="加密流程"></a>加密流程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[初始化密钥和向量] --&gt; B[生成AES加密器]</span><br><span class="line">C(处理明文使用PKCS7填充)</span><br><span class="line">B---D((加密生成密文))</span><br><span class="line">C---D</span><br><span class="line">D --&gt; E[对密文进行Base64编码以便于查看]</span><br></pre></td></tr></table></figure>
-<h6 id="解密流程"><a href="#解密流程" class="headerlink" title="解密流程"></a>解密流程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[初始化密钥和向量]--&gt;B[生成AES解密器]</span><br><span class="line">B --&gt; C[解密原有密文]</span><br><span class="line">C --&gt; D[解密二进制数据重新编码]</span><br><span class="line">D --&gt; E[去除额外填充]</span><br></pre></td></tr></table></figure>
+<h6 id="加密流程"><a href="#加密流程" class="headerlink" title="加密流程"></a>加密流程</h6><p><img src="/img/aes/aes1.png" alt="加密流程"></p>
+<h6 id="解密流程"><a href="#解密流程" class="headerlink" title="解密流程"></a>解密流程</h6><p><img src="/img/aes/aes2.png" alt="解密流程"></p>
 <p>以上部分的具体代码可在我的<a href="https://github.com/deimo/edcrypt" target="_blank" rel="noopener"><strong>github repo</strong></a>上找到</p>
 <h2 id="RSA加解密算法"><a href="#RSA加解密算法" class="headerlink" title="RSA加解密算法"></a>RSA加解密算法</h2><h4 id="流程与场景"><a href="#流程与场景" class="headerlink" title="流程与场景"></a>流程与场景</h4><p>RSA加解密的流程，先以我看到的一张图描述(如有侵权，请联系博主删除)</p>
 <p><img src="/img/rsa/RSA1.png" alt="RSA工作流程"></p>
@@ -230,11 +230,11 @@
 <p>方法2：通过pycryptodome库自行创建</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_rsa_key</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    生成RSA加解密的公钥和私钥</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    key = RSA.generate(<span class="number">1024</span>)</span><br><span class="line">    encrypt_key = key.export_key(pkcs=<span class="number">8</span>)</span><br><span class="line">    print(<span class="string">'encrypted_key: '</span>, encrypt_key)</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'my_private_rsa_key.pem'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(encrypt_key)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'my_rsa_public.pem'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(key.publickey().export_key())</span><br></pre></td></tr></table></figure>
 <p><strong>场景1</strong></p>
-<h6 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程"></a>加密过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[载入公钥] --&gt; B[生成加密器]</span><br><span class="line">B --&gt; C[加密器加密生成密文]</span><br><span class="line">C --&gt; D[对密文Base64编码]</span><br></pre></td></tr></table></figure>
-<h6 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a>解密过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[载入私钥] --&gt; B[生成解密器]</span><br><span class="line">B --&gt; C[Base64解码获取原始密文]</span><br><span class="line">C --&gt; D[解密器解密密文]</span><br></pre></td></tr></table></figure>
+<h6 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程"></a>加密过程</h6><p><img src="/img/rsa/rsa2.png" alt="rsa加密过程"></p>
+<h6 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a>解密过程</h6><p><img src="/img/rsa/rsa3.png" alt="rsa解密过程"></p>
 <p><strong>场景2</strong></p>
-<h6 id="签名过程"><a href="#签名过程" class="headerlink" title="签名过程"></a>签名过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[载入密钥] --&gt; B[生成签名器]</span><br><span class="line">C[原文生成哈希对象]</span><br><span class="line">B ---D((对哈希对象进行签名))</span><br><span class="line">C ---D</span><br><span class="line">D --&gt;E[对签名数据Bas4编码]</span><br></pre></td></tr></table></figure>
-<h6 id="验签过程"><a href="#验签过程" class="headerlink" title="验签过程"></a>验签过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"></span><br><span class="line">B ---E((使用验签器对两种哈希值进行验证))</span><br><span class="line">C[计算原文的信息摘要] ---E</span><br><span class="line">A[载入公钥] --&gt; B[生成验签器]</span><br><span class="line">D[Base64解码获取原始签名] ---E</span><br></pre></td></tr></table></figure>
+<h6 id="签名过程"><a href="#签名过程" class="headerlink" title="签名过程"></a>签名过程</h6><p><img src="/img/rsa/rsa4.png" alt="签名过程"></p>
+<h6 id="验签过程"><a href="#验签过程" class="headerlink" title="验签过程"></a>验签过程</h6><p><img src="/img/rsa/rsa5.png" alt="验签过程"></p>
 <p>以上部分的具体代码可在我的<a href="https://github.com/deimo/edcrypt" target="_blank" rel="noopener"><strong>github repo</strong></a>上找到</p>
 <h2 id="参考列表"><a href="#参考列表" class="headerlink" title="参考列表"></a>参考列表</h2><p><strong>AES部分，以下排名不分先后</strong></p>
 <ol>
@@ -1160,25 +1160,25 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
-		
-			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
-		
-			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
-		
-			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
-		
-			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
-		
-			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
-		
-			<li><a href="/tags/Python-AES-RSA/">Python AES RSA<span>1</span></a></li>
-		
 			<li><a href="/tags/消息队列/">消息队列<span>1</span></a></li>
 		
 			<li><a href="/tags/运维，性能监控/">运维，性能监控<span>1</span></a></li>
 		
+			<li><a href="/tags/问题记录-转载/">问题记录 转载<span>1</span></a></li>
+		
+			<li><a href="/tags/容器化技术，转载/">容器化技术，转载<span>1</span></a></li>
+		
+			<li><a href="/tags/Python-AES-RSA/">Python AES RSA<span>1</span></a></li>
+		
+			<li><a href="/tags/问题记录/">问题记录<span>2</span></a></li>
+		
+			<li><a href="/tags/语言基础/">语言基础<span>2</span></a></li>
+		
 			<li><a href="/tags/微信-原创教程/">微信 原创教程<span>2</span></a></li>
+		
+			<li><a href="/tags/微信-问题记录/">微信 问题记录<span>1</span></a></li>
+		
+			<li><a href="/tags/生活记录/">生活记录<span>2</span></a></li>
 		
 			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		

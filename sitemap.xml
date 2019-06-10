@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://deimo.github.io/about/index.html</loc>
+    
+    <lastmod>2019-06-10T10:41:51.925Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://deimo.github.io/2019/06/08/%E8%B5%B0%E8%BF%91Python%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
     
     <lastmod>2019-06-08T05:05:34.562Z</lastmod>
@@ -37,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://deimo.github.io/about/index.html</loc>
+    <loc>https://deimo.github.io/about/index2.html</loc>
     
     <lastmod>2018-11-08T10:29:52.494Z</lastmod>
     
